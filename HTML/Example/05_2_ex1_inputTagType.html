@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>고객 정보</legend>
+
+            <label for="ID">ID</label>
+            <input type="text" name="id" id="ID" 
+            autofocus placeholder="10자 이내로 입력해주세요."
+            required> 
+            <!-- autofocus - 자동으로 입력 창에 커서 놓기 -->
+            <!-- placeholder - 입력창 안에 희미한 글자 / 서버로 전송 안됨-->
+            <!-- required - 필수 입력 사항 지정 -->
+            <br>
+            <label for="pw">PW</label>
+            <input type="password" name="pw" id="pw">
+
+            <br>
+            <!-- 읽기 전용 속성, 수정 불가능 -->
+            <label for="readonly">readonly</label>
+            <input type="text" readonly value="참조">
+            <br>
+                <ul>
+                    <li>
+                        <label for="sb">딸기</label>
+                        <input type="checkbox" name="sb" id="sb">
+                    </li>
+                    <li>
+                        <label for="banana">바나나</label>
+                        <input type="checkbox" name="banana" id="banana" checked>
+                        <!-- checked - 자동 선택 속성 -->
+                    </li>
+                    <li>
+                        <label for="wm">수박</label>
+                        <input type="checkbox" name="wm" id="wm">
+                    </li>
+                </ul>
+            <br>
+                <ul>
+                    <li>
+                        <label for="sbr">딸기</label>
+                        <input type="radio" value="1" name="fruit" id="sbr">
+                    </li>
+                    <li>
+                        <label for="bananar">바나나</label>
+                        <input type="radio" value="2" name="fruit" id="bananar">
+                    </li>
+                    <li>
+                        <label for="wmr">수박</label>
+                        <input type="radio" value="3" name="fruit" id="wmr" checked>
+                    </li>
+                </ul>
+            <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+</body>
+</html>

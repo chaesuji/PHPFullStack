@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* * : html 문서 내의 모든 것(전체 선택자) */
+        * {
+            margin : 0;
+        }
+    /* 타입 선택자 */
+        h1 {
+            color : blue;
+        }
+    /* 클래스 선택자 > 클래스라는 속성을 써 이름을 지정 후 css 속성 적용 */
+        .bk_gray {
+            background-color: gray;
+        }
+    /* ID 선택자 */
+        #cook1 {
+            font-size: large;
+        }
+    /* 그룹 선택자 > 한 번에 여러 개의 선택자에 css 적용*/ 
+        p, em {
+            font-size: 50px;
+        }
+        /* .bk_gray, #cook1 {
+            font-size: 10px;
+        } */
+    </style>
+</head>
+<body>
+    <div class="bk_gray">
+        <h1>요리</h1>
+        <span id="cook1">탕수육</span>
+        <p>탕수육 영어로 아시는 분?</p>
+        <em>아~ 탕수육</em>
+    </div>
+</body>
+</html>
