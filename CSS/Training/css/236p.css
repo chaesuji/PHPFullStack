@@ -1,0 +1,46 @@
+.container1 {
+    background-color:rgb(00, 00, 00);
+    height:180px;
+    padding : 15px;
+}
+
+.container2 {
+    text-align: center;
+    border:1px dotted #000000;
+}
+
+h1 {
+    color:#ffffff;
+    line-height: 2.5em;
+}
+
+.info {
+    color:orange;
+}
+
+.check {
+    text-align: left;
+    background-color: #000000;
+    color:#ffffff;
+    height: 40px;
+}
+
+h2 {
+    color:#ff0000;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+p {
+    font-weight: 600;
+    line-height: 2em;
+}
+
+span {
+    font-weight: 600;
+    color:#0000ff;
+}
+
+.time {
+    font-size: small;
+}

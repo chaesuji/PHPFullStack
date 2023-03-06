@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 스타일 우선 순위 */
+        /* 최대한 외부 스타일 적용 > inline > !important */
+        /* 5 타입 스타일 & 1 !important : important를 해당 요소에만 우선순위가 적용됨 */
+        /* h1 {
+            color:red !important;
+        } */
+
+        /* 4 클래스 스타일 */
+        .h1-1 {
+            color:orange;
+        }
+
+        /* 3 id 스타일 */
+        #h1-id {
+            color:black;
+        }
+
+        /* 계단식으로 위 > 아래 덮어쓰기 적용 */
+        h2 {
+            color:red;
+        }
+        h2 {
+            color:orange;
+        }
+
+        /* 스타일 상속 : 부모 > 자식 */
+        .container_2 {
+            color:blue;
+        }
+
+        .h1_2 {
+            color:orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- 스타일 우선순위 -->
+    <div class="container">
+        <!-- 2 인라인 스타일 -->
+        <h1 class="h1-1" id="h1-id" style="color:pink;">적용 순위</h1>
+
+        <h2 class="h2-1" id="h2-id">적용 순위</h2>
+    </div>
+
+    <!-- 스타일 상속 -->
+    <div class="container_2">
+        <h1 class="h1_2">스타일 상속</h1>
+    </div>
+</body>
+</html>

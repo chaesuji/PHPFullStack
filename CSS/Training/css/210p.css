@@ -1,0 +1,33 @@
+h1 {
+    color:red;
+    border: 3px solid orange;
+    width:210px;
+}
+
+h2 {
+    color:blue;
+    border: 3px solid orange;
+    width:55px;
+}
+.h2-1{
+    width:80px;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr,th,td {
+    border: 1px solid black;
+    padding:10px;
+}
+
+ol{
+    border: 3px solid orange;
+    width:225px;
+}
+
+li {
+    color:green;
+}

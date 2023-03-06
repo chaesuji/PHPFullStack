@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cook_1 {
+            /* list-style-type: none; / list-style을 없앰 */
+            list-style-type: decimal; /* 1,2,3,,, */
+            list-style-position: outside;
+            /* outside : 들여쓰기 기본 값 / inside : 기본 값보다 안으로 들여씀 */
+        }
+        .cook_2 {
+            list-style-image: url(./img/image.jpg); /* list의 목록 부분을 이미지 */
+        }
+        .cook_3 {
+            list-style: decimal inside; /* 목록 속성을 한꺼번에 지정 */
+        }
+    </style>
+</head>
+<body>
+    <ul class="cook_1">
+        <li>오므라이스</li>
+        <li>한솥</li>
+        <li>써브웨이</li>
+    </ul>
+    <ul class="cook_2">
+        <li>오므라이스</li>
+        <li>한솥</li>
+        <li>써브웨이</li>
+    </ul>
+    <ul class="cook_3">
+        <li>오므라이스</li>
+        <li>한솥</li>
+        <li>써브웨이</li>
+    </ul>
+</body>
+</html>

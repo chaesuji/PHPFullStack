@@ -1,0 +1,26 @@
+/* 4 클래스 스타일 */
+.h1-1 {
+    color:orange;
+}
+
+/* 3 id 스타일 */
+#h1-id {
+    color:black;
+}
+
+/* 계단식으로 위 > 아래 덮어쓰기 적용 */
+h2 {
+    color:red;
+}
+h2 {
+    color:orange;
+}
+
+/* 스타일 상속 : 부모 > 자식 */
+.container_2 {
+    color:blue;
+}
+
+.h1_2 {
+    color:orange;
+}
