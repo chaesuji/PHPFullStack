@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width:150px;
+            float: left;
+            /*
+            float : 요소를 문서 위에 떠 있도록 만듬
+            left/right : 해당 요소를 문서의 왼쪽/오른쪽에 배치
+            */
+        }
+        .p_2{
+            clear:both;
+            /*
+            clear : float를 해제시키는 속성
+            left/right : float left/right를 각각 해제함
+            both : left/right를 모두 해제
+            */
+        }
+    </style>
+</head>
+<body>
+    <img src="./img/peng.jpg" alt="image">
+    <!-- img : block -->
+    <p class="p_1">
+        요리(料理, Cooking)는 ‘요리음식점’(한성주보, 1886년 10월4일치)에 처음 나온, <br>
+    </p>
+    <p class="p_2">
+        조선 말 한성에 진출한 일본인들이 음식을 만들어 팔던 가게의 간판을 인용한 말로 <br>
+        먹기 좋게 가공한 음식이나 가공 행위 자체를 의미한다
+    </p>
+</body>
+</html>

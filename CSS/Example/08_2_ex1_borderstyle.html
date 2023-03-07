@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div_border{
+            border:1px solid black; /* 두께 / 선 종류 / 색상 */
+        }
+        .div_none{
+            border-style: none;
+        }
+        .div_solid{
+            border-style: solid; /* 브라우저의 기본 선 두께 */
+            border-width: 1px 5px 10px 15px; /* 선 두께 조절 / 최대 4개(상,우,하,좌) */
+            /* border-radius: 2em;  모든 테두리 둥글게 조절 (px,%,em) */
+            border-top-left-radius: 10px; /* 왼쪽 위만 테두리 조절 */
+            border-bottom-right-radius: 10px;
+        }
+        .div_dotted{
+            border-style: dotted;
+            border-color: #0000ff; /* 선 색상 */
+        }
+        .div_dashed{
+            border-style: dashed; /* dotted보다 점과 점 사의 간격이 넓음 */
+        }
+        .div_double{
+            border-style: double;
+        }
+    </style>
+</head>
+<body>
+    <div class="div_border">테두리(한번에)</div>
+    <br>
+    <div class="div_none">테두리(없음)</div>
+    <br>
+    <div class="div_solid">테두리(실선)</div>
+    <br>
+    <div class="div_dotted">테두리(점선)</div>
+    <br>
+    <div class="div_dashed">테두리(대쉬)</div>
+    <br>
+    <div class="div_double">테두리(2줄)</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+.container_1 {
+    border:1px dotted #000;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 15px;
+    margin:20px auto;
+    width:550px;
+}
+
+.container_2 {
+    border: 1px dotted #000;
+    padding:15px;
+    margin:20px auto;
+    width: 550px;
+}
+
+.container_3{
+    border:1px dotted #000;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding:15px;
+    margin:20px auto;
+    width:550px;
+}
+
+ul {
+    list-style-type: decimal;
+}
+
+span{
+    font-weight: 600;
+}
+
+table,th,tr,td {
+    border:1px solid rgb(177, 174, 174);
+    border-collapse: collapse;
+    padding:15px;
+    margin:5px;
+}
+
+caption{
+    font-size:small;
+}
+
+.tablestyle {
+    background-color:rgb(222, 232, 236)
+}

@@ -1,12 +1,31 @@
 .container1 {
-    background-color:rgb(00, 00, 00);
     height:180px;
+    width:910px;
     padding : 15px;
+    position: relative; z-index: 2;
+    /* top:50px; */
+    bottom:150px;
+}
+
+.container1-2{
+    position: relative; z-index: 1;
+}
+
+img {
+    width:906px;
+    height:650px;
+    position:relative;
+    right:15px;
+    bottom:15px;
+    position: relative; z-index: 4;
 }
 
 .container2 {
     text-align: center;
     border:1px dotted #000000;
+    position: relative; z-index: 3;
+    top:100px;
+    background-color: #ffffff;
 }
 
 h1 {
@@ -23,6 +42,8 @@ h1 {
     background-color: #000000;
     color:#ffffff;
     height: 40px;
+    position: relative;
+    bottom: 10px;
 }
 
 h2 {
