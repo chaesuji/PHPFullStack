@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head> <!-- html을 구동하기 위한 설정 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div_img {
+            background-image: url("./img/peng.jpg"), url("./img/image.jpg");
+            width: 500px;
+            height: 500px;
+            /*
+            background-image : 배경부분에 이미지 설정
+            url() > 함수, 이미지 주소 적기(''/"")
+            */
+        }
+
+        .div_repeat {
+            background-image: url("./img/peng.jpg");
+            width: 500px;
+            height: 500px;
+            background-repeat: repeat-y;
+
+            /*
+            background-repeat : 배경 이미지 반복 설정
+            repeat : 가로/세로 반복, 기본 값
+            no-repeat : 반복 안 함
+            repeat-x/y : 가로 반복 / 세로 반복
+            */
+        }
+
+        /* viewport = body */
+        /* body {
+            background-image: url('./img/peng.jpg');
+        } */
+
+        .div_position {
+            background-image: url("./img/peng.jpg");
+            width: 500px;
+            height: 500px;
+            background-repeat: no-repeat;
+            background-position: bottom 100px right 50px;
+            background-size: contain;
+
+            /* 
+            background-position : 이미지 위치 조절
+            left, right, center = 수평 /top, bottom = 수직 
+            % : 왼쪽을 기준으로 위치가 바뀜 
+            10% 75%; > 가로, 세로
+            */
+
+            /*
+            background-size : 이미지 사이즈 조절
+            auto 기본 값 / px&em&% 
+            cover(요소 안에 이미지를 채움(튀어나오는 부분은 안 보임))
+            contain(요소 안에 이미지 전체가 나오도록 함)
+            */
+        }
+
+        .at_img {
+            background-image: url('./img/peng.jpg');
+            width:150px;
+            height: 200px;
+            display: inline-block;
+            border: 1px solid #000;
+            overflow: scroll; /* 스크롤바 생성 */
+            background-size:80%
+        }
+
+        .div_img_scroll {
+            background-attachment: scroll;
+            /* 스크롤을 내려도 이미지 고정(콘텐츠만 내려감) */
+        }
+
+        .div_img_fixed {
+            background-attachment: fixed;
+            /* viewport(브라우저)의 스크롤에 대해 영향을 받음 */
+        }
+
+        .div_img_local {
+            background-attachment: local;
+            /* 스크롤을 내리면 콘텐츠와 함께 이미지도 같이 내려감 */
+        }
+    </style>
+</head>
+<body>
+    <div class="div_img"></div>
+    <div class="div_repeat"></div>
+
+    <hr>
+
+    <div class="div_position">background-position</div>
+
+    <hr>
+    <div class="div_imag_scroll at_img">
+        각종 재료를 준비하는 과정에서부터 여러 가지 과정을 거쳐 음식을 만들고 시식 후 처리하는 일련의 과정을 말한다.
+        요리는 여러 조리과정을 거쳐 음식을 만드는 것이나 그 음식을 말하며 주로 가열한 것을 말한다. 조리(調理)는 요리를 만드는 일이나 그 방법, 과정 등을 말한다.
+    </div>
+    <div class="div_img_fixed at_img">
+        각종 재료를 준비하는 과정에서부터 여러 가지 과정을 거쳐 음식을 만들고 시식 후 처리하는 일련의 과정을 말한다.
+        요리는 여러 조리과정을 거쳐 음식을 만드는 것이나 그 음식을 말하며 주로 가열한 것을 말한다. 조리(調理)는 요리를 만드는 일이나 그 방법, 과정 등을 말한다.
+    </div>
+    <div class="div_img_local at_img">
+        각종 재료를 준비하는 과정에서부터 여러 가지 과정을 거쳐 음식을 만들고 시식 후 처리하는 일련의 과정을 말한다.
+        요리는 여러 조리과정을 거쳐 음식을 만드는 것이나 그 음식을 말하며 주로 가열한 것을 말한다. 조리(調理)는 요리를 만드는 일이나 그 방법, 과정 등을 말한다.
+    </div>
+</body>
+</html>

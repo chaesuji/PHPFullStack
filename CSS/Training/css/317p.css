@@ -1,0 +1,50 @@
+body {
+    background-color: #004344;
+}
+
+.container {
+    text-align: center;
+    background-image: url('../img/mic.jpg');
+    background-position: right 1px bottom 1px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border: 1px solid #004344;
+    height:800px;
+    width:750px;
+    position:relative;
+    left:25px;
+    bottom:20px;
+}
+
+h1 {
+    background-color: green;
+    color:#fff;
+    padding:20px;
+    width:670px;
+    position:relative;
+    left:18px;
+    top:15px;
+}
+
+h2 {
+    font-style: italic;
+    position: relative;
+    top:10px;
+    margin:10px;
+}
+
+blockquote, h3 {
+    text-align: left;
+    margin:20px;
+    position: relative;
+    top:25px;
+}
+
+blockquote {
+    position:relative;
+    left:70px;
+}
+
+h3 {
+    color:orange;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        .div_liner {
+            width:400px;
+            height: 200px;
+            border: 1px solid #000;
+            background:linear-gradient(45deg, blue, purple 20%, pink);
+            /* 선형 그라데이션
+            linear-gradient(각도&방향, 시작 색, 색상 중지점, 끝 색)
+            방향 : to right/left/top/bottom ~에서 ~로 그라데이션
+            각도 : ~~ deg > 대각선 그라데이션 가능
+            색상 중지점 위치 > 색상 중지점 % 
+            */
+        }
+
+        .div_radial {
+            width:400px;
+            height:200px;
+            border:1px solid #000;
+            background:radial-gradient(circle farthest-corner at 0% 20%, aqua,greenyellow);
+
+            /* 원형 그라데이션
+            원의 모양 조절 : circle(구), ellipse(타원, 기본 값)
+            원의 크기 조절 : 
+            closest(작음)-corner(가장 가까운 꼭짓점)/side(가장 가까운 측면),
+            farthest(큼)-corner(가장 먼 꼭짓점/side(가장 먼 측면)
+            원의 위치 : at 0%(width) 20%(height)
+            */
+        }
+    </style>
+</head>
+<body>
+    <h1>선형 그라데이션</h1>
+    <div class="div_liner"></div>
+
+    <h1>원형 그라데이션</h1>
+    <div class="div_radial"></div>
+</body>
+</html>

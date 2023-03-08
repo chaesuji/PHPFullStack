@@ -1,0 +1,33 @@
+section {
+    border: 1px solid #000;
+    width:750px;
+    height: 590px;
+    padding: 10px;
+}
+
+div {
+    width:500px;
+    height:200px;
+    background-color: #ccc;
+    border: 1px solid grey;
+}
+
+.div_rel1 {
+    position: relative;
+    top:15px;
+}
+
+.div_rel2 {
+    position: relative;
+    top:-25px;
+    left: 150px;
+}
+
+.box {
+    width:100px;
+    height: 100px;
+    background-color: #000;
+    position: fixed;
+    right:160px;
+    top:50px;
+}

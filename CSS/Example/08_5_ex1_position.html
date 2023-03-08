@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        main, section, article {
+            padding:20px;
+        }
+        main {
+            background-color: rgb(211, 211, 135);
+            height: 1500px;
+        }
+        section {
+            background-color: aqua;
+            /* position: relative; */
+        }
+        article {
+            background-color: skyblue;
+            height: 1500px;
+        }
+        .div_static {
+            background-color: white;
+        }
+        .div_relative {
+            background-color: orange;
+            /* position: relative; */
+            /* top: 30px;  */
+            /* bottom: 30px; */
+            /* right: 30px; */
+            /* left: -30px; */
+
+            /* 
+            relative : 현재 요소의 위치를 기준으로 위치 값 지정
+             * absolute 보다 상위 요소에 적용 가능
+             * 속성 값을 마이너스(-)로 넣으면 반대로 이동함
+            top, bottom, right, left
+            */
+        }
+        .div_absolute {
+            background-color: green;
+            /* position: absolute; */
+            /* top: 0px; */
+            /* bottom: 30px; */
+
+            /*
+            absolute : relative 값을 사용한 ^상위 요소^를 기준으로 위치 값 지정
+             * static(기본 값)이 아닌 부모 요소를 기준으로 위치 값 지정
+             * 조상 중 position을 가진 요소가 없다면 초기 컨테이닝 블록(<body>요소)를 기준으로 잡음
+            top, bottom, right, left 
+            */
+        }
+        .div_fixed {
+            background-color: greenyellow;
+            /* position: fixed;
+            bottom: 10%;
+            right:10%; */
+
+            /*
+            fixed : viewport(실제화면에 보이고 있는 브라우저 영역)를 기준으로 위치 고정
+             * px / % / em 사용 가능
+            */
+        }
+        .div_sticky {
+            background-color: violet;
+            position: sticky;
+            top:0px;
+
+            /*
+            sticky : 부모 요소의 스크롤 박스에 위치 고정 
+            top, bottom, right, left (상,하,우,좌에 고정)
+            */
+        }
+    </style>
+</head>
+<body>
+    <main>
+        main
+        <section>
+            section
+            <article>
+                article
+                <!-- position 속성 값들 -->
+                <div class="div_static">static</div> <!-- position 기본 속성 -->
+                <div class="div_relative">relative</div>
+                <div class="div_absolute">absolute</div>
+                <div class="div_fixed">fixed</div>
+                <div class="div_sticky">sticky</div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

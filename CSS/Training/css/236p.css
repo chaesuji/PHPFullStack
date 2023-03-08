@@ -8,7 +8,10 @@
 }
 
 .container1-2{
-    position: relative; z-index: 1;
+    position: absolute;
+    margin:10px;
+    top:50px;
+    
 }
 
 img {
@@ -18,6 +21,7 @@ img {
     right:15px;
     bottom:15px;
     position: relative; z-index: 4;
+    vertical-align:top;
 }
 
 .container2 {
