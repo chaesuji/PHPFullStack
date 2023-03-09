@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 상위요소 하위요소 : 하위 선택자
+        특정 상위요소 안에 들어있는 모든 하위요소에 스타일 적용 */
+        header span {
+            color:aqua;
+        }
+
+        /* 부모요소 > 하위요소 : 자식 선택자
+        부모요소의 자식요소에게만 스타일 적용 */
+        header > span {
+            color:blue;
+        }
+
+        /* A 형제요소 + B 형제요소 : 인접 형제 선택자
+        A 형제요소와 형제인 B 형제요소 중 첫 번째 요소만 스타일 적용 */
+        div + span {
+            color: blueviolet;
+        }
+        span + p {
+            color:violet;
+        }
+
+        /* A 형제요소 ~ B 형제요소 : 형제 선택자
+        설정된 모든 형제 요소에 적용 */
+        .div3 ~ span {
+            color:gray;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <span>header - div - span</span>
+        </div>
+        <span>header - span</span>
+    </header>
+    <br><hr><br>
+
+    <main>
+        <div>
+            <span>main - div - span</span>
+        </div>
+        <span>main - span1</span>
+        <p>header - p1</p>
+        <span>main - span2</span>
+        <span>main - span3</span>
+    </main>
+    <br><hr><br>
+
+    <main>
+        <div class="div3">
+            <span>main - div - span</span>
+        </div>
+        <span>main - span1</span>
+        <p>header - p1</p>
+        <span>main - span2</span>
+        <span>main - span3</span>
+    </main>
+
+    <span>span</span>
+</body>
+</html>

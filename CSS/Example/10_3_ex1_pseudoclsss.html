@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 가상 클래스
+            :link - 방문하지 않은 링크에 대해 스타일 적용
+            :visited - 방문한 적이 있는 링크에 스타일 적용
+            :hover - 요소 위에 마우스 포인터를 올려놓으면 스타일 적용
+            :active - 요소를 클릭해서 요소를 활성화 시킬 때 스타일 적용
+             * focus 제와 link > visited > hover > active 입력 순서 지키기
+
+            :focus - 포커스(마우스 커서)를 받은 요소에 스타일 적용
+            :target - 앵커 대상에 스타일을 적용
+
+            구조 가상 클래스
+            nth-child(n) - n번째 자식 요소에 스타일 적용
+             * odd : 홀수 / even : 짝수
+            A(타입선택자)-nth-of-type() - 
+            :not(selector) - () 안의 선택자를 제외한 요소들에게 스타일 적용
+
+            ::first-letter - 요소의 첫 번째 글자에 스타일 적용
+            ::first-line - 요소의 첫 문단에 스타일 적용
+            ::before - 요소의 앞에 스타일 적용
+            ::after - 요소의 뒤에 스타일 적용
+            ::selection - 요소를 드래그 할 때 스타일 적용
+        */
+
+        a:link {
+            color:aqua;
+        }
+
+        a:visited {
+            color:#51af51;
+        }
+
+        ul li {
+            list-style-type: none;
+            float:left;
+            width:100px;
+            height:30px;
+            background-color: #000;
+            color:#fff;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        a:hover {
+            background-color: crimson;
+        }
+
+        a:active {
+            background-color: aqua;
+        }
+
+        input:focus {
+            border: 3px solid purple;
+            outline:none; /* 원래 있던 input의 외각선 지움 */
+        }
+
+        #target_1:target {
+            background-color: burlywood;
+        }
+
+        div :nth-child(even) {
+            background-color: yellow;
+        }
+
+        div h2:nth-of-type(2) {
+            background-color: #416b41;
+        }
+
+        div :not(p) {
+            background-color: violet;
+        }
+
+        .container_2 .pf_1::first-letter {
+            background-color: cornflowerblue;
+        }
+
+        .container_2 .pf_2::first-line {
+            background-color: cornflowerblue;
+        }
+
+        .pf_2 > .span_1::before {
+            content: '중요';
+            color:red;
+        }
+
+        .pf_2 > .span_1::after {
+            content: '중요';
+            color:red;
+        }
+
+        .container_2 p::selection {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com">네이버</a>
+    <nav>
+        <ul>
+            <li><a href="#target_1">nav1</a></li>
+            <li><a href="#">nav2</a></li>
+            <li><a href="#">nav3</a></li>
+            <li><a href="#">nav4</a></li>
+        </ul>
+    </nav>
+    <br><br><br><br>
+
+    <span id="target_1">target 테스트</span>
+
+    <br><br><br>
+    <label for="input_1">input</label>
+    <input type="text" id="input_1">
+    <br><br>
+
+    <fieldset>
+        <legend>구조 가상 클래스</legend>
+        <div class="container">
+            <h2>h2_1</h2>
+            <p>p_1</p>
+            <p>p_2</p>
+            <h2>h2_2</h2>
+            <p>p_3</p>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>가상 요소</legend>
+        <div class="container_2">
+            <h2>h2_1</h2>
+            <p class="pf_1">
+                각종 재료를 준비하는 과정에서부터 여러 가지 과정을 거쳐 음식을 만들고 시식 후 처리하는 일련의 과정을 말한다.
+            </p>
+            <p class="pf_2">
+                각종 재료를 준비하는 과정에서부터 <span class="span_1">여러 가지 과정</span>을 거쳐 음식을 만들고 시식 후 처리하는 일련의 과정을 말한다.
+            </p>
+        </div>
+    </fieldset>
+</body>
+</html>

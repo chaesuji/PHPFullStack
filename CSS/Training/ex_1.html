@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/ex_1.css">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>I want YOU!</legend>
+            <label for="name" class="star">이름</label>
+            <input type="text" id="name" required class="input_trans">
+            <br><br>
+            
+            <label for="age" class="star">나이</label>
+            <input type="number" id="age" min="20" required class="input_trans">
+            <br><br>
+            
+            <label for="gender" class="star">성별</label>
+            <input type="radio" value="man" name="gender" id="man" class="gender_radio" required>
+            <label for="man" class="gender_label">남자</label>
+            <input type="radio" value="woman" name="gender" id="woman" class="gender_radio">
+            <label for="woman" class="gender_label">여자</label>
+            <br><br>
+            
+            <label for="plese" class="plese_label">요청사항</label>
+            <textarea name="plese" id="plese" cols="30" rows="10" placeholder="요청 사항 입력" class="plese_text"></textarea>
+            <br>
+            
+            <button class="submit_btn" type="submit">보내기</button>
+            <div class="btn_text">내용을 다시 한 번 확인해 주세요.</div>
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* 
+body {
+    margin:0;
+    padding:0;
+}
+ */
+
+fieldset {
+    width:550px;
+    height:380px;
+    margin:0 auto;
+    background-image: url(../img/mic.jpg);
+    background-repeat: no-repeat;
+    background-size: 574px 380px;
+}
+
+legend {
+    color:violet;
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+.star::before { 
+    content: '*';
+    color:#f00;
+}
+
+textarea, .input_trans { /* input 투명도 */
+    background-color: transparent;
+}
+
+input:focus { /* input border */
+    border:2px solid #f00;
+    outline: none;
+}
+
+/* input[type="radio"]:checked + .gender_label{ /* radio + label 
+    color:#f00;
+} */
+
+.gender_radio:checked + .gender_label { /* radio + label 2 */
+    color:#f00;
+}
+
+.plese_text:focus { /* 요청사항 */
+    border:2px solid #f00;
+    outline: none;
+}
+
+.plese_label { /* 요청사항 label */
+    position: relative;
+    bottom:140px;
+}
+
+.submit_btn { /* bto position */
+    position: relative;
+    top:20px;
+}
+
+.btn_text { /* btn hover 1 > text box */
+    background-color: #000;
+    color:#fff;
+    width:250px;
+    height:30px;
+    position: relative;
+    left:55px;
+    display: none;
+}
+
+.submit_btn:hover + .btn_text { /* btn hover 2 */
+    display:block;
+}
