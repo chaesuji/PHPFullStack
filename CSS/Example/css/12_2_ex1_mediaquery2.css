@@ -1,0 +1,5 @@
+@media (min-width:501px) and (max-width:700px) { /* width가 501px부터 700px까지는 배경색이 파랑 */
+    p {
+        background-color: blue;
+    }
+}

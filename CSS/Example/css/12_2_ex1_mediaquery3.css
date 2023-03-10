@@ -1,0 +1,5 @@
+@media (min-width:701px) { /* width가 701px부터 배경색 초록 */
+    p {
+        background-color: green;
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex_container {
+            background-color: grey;
+            width: 60vw;
+            height: 60vh;
+            display: flex; /* flex : 안의 flex 항목을 블럭 레벨 요소로 배치 */
+            
+            flex-direction: column;
+            /* flex-derection : 주축과 방향을 지정 
+            row(기본 값, 왼>오, 가로 정렬), 
+            column(세로 정렬, 주축과 교차축이 바뀜 / 세로>주축 가로>교차축, 위>아래)
+            row-reverse(오>왼, row의 형태를 뒤집기, 가로)
+            column(columu의 형태를 뒤집음 / 아래>위)
+            */
+            
+            /* flex-wrap: wrap; */
+            /* flex-wrap : 항목의 줄을 바꿀지 여부를 지정 / 지정하지 않으면 부모 컨테이너의 크기에 맞게 조절됨
+            wrap : (기본값)
+            wrap-reverse : wrap의 시작과 끝점이 바뀜
+            * reverse : 주축을 기준으로 뒤집기
+            */
+            
+            /* flex-flow : 배치 방향과 줄 바꿈을 한꺼번에 지정 
+            flex-flow: column wrap;*/
+
+            
+            /* justify-content : 주축 방향을 기준으로 정렬 justify-content: flex-end;
+            flex-start : 주축의 시작점에 맞춰 배치
+            flex-end : start의 반대 
+            center : 중앙 정렬(주축 기준)
+            space-between : 첫 번째, 마지막 항목을 끝에 배치한 후에 나머지 항목들은 일정한 간격으로 배치
+            space-around : 여백 먼저 배치 후 모든 항목을 같은 간격으로 배치
+            */
+
+            /* align-items : 교차축을 기준으로 정렬 align-items: center;
+            flex-start : 기본값, 교차축의 시작지점에서 정렬
+            flex-start : 교차축의 끝지점에서 정렬
+            center : 교차축의 중간 지점에서 정렬
+            */
+
+            align-content: space-between;
+            /* align-content : 교차축 기준으로 여러줄일 때 정렬 방법을 지정
+            flex-start
+            flex-end 
+            center
+            space-between : 시작과 끝 점 사이에 여백
+            space-around 
+            */
+        }
+
+        .flex_item {
+            border: 1px solid black;
+            width: 5vw;
+            height: 5vh;
+            background-color: aqua;
+        }
+
+        .item_3 {
+            
+            /* align-self : 교차축을 기준으로 특정 항목만 정렬 align-self: center;
+            flex-start : 기본값, 교차축의 시작점에 맞춰 배치
+            flex-end : 교차축의 끝 점에 맞춰 배치
+            center
+            */
+        }
+        /* flex
+        가로 : 주축(flex,justify) / 세로 : 교차축(align) */
+
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <div class="flex_item">1</div>
+        <div class="flex_item">2</div>
+        <div class="flex_item item_3">3</div>
+        <div class="flex_item">4</div>
+        <div class="flex_item">5</div>
+    </div>
+</body>
+</html>

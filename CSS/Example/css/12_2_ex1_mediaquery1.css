@@ -1,0 +1,6 @@
+@media (max-width:500px) { /* width가 500px까지는 배경색이 빨강 */
+    p {
+        background-color: red;
+    }
+}
+
