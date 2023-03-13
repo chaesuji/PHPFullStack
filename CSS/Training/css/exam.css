@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        p, a {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+}
+.hero {
+    margin: 0;
+    padding:10px;
+    width:100%;
+    height:auto;
+    /* text-align: center;
+    position: relative;
+    z-index: 1; */
+    /* align-items: flex-start; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+/* .here::after {
+    content: "";
+    opacity: 0.5;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+} */
+article > p, a {
+    margin-top: 70px;
+    
+} 
+article > p {
+    text-align: left;
+    font-size: 22px;
+    font-weight: 300;
+}
+article > a {
+    margin-bottom: 20px;
+    width: 120px;
+    padding: 10px;
+}
+h1, article{
+    color:#fff;
+}
+h1 {
+    text-align: left;
+    font-size: 50px;
+    padding-top: 100px;
+    padding-left:15px;
+}
+.warpper {
+    display: inline-flex;
+}
+
+a{
+    text-decoration: none;
+    color:#fff;
+    background-color: goldenrod;
+    display: block;
+    text-align: center;
+    width:100px;
+    padding: 10px;
+    border-radius: 5px;
+    /* position: absolute; */
+
+}
+a:hover {
+    opacity : 0.5;
+}
+/* a[href="#breweries"] {
+    width:130px;
+    justify-content: center;
+    align-items: center;
+} */
+/* article > p {
+    position: absolute;
+    right: 800px;
+    top:80px; 
+    justify-content: center;
+    text-align: left;
+} */
+[src] { /* img */
+    width:100%;
+    height: auto;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+ul {
+    list-style-type: none;
+    /* display: flex; */
+    display: grid;
+    /* flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start, space-between; */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 50px;
+}
+li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 50px;
+    /* height: 400px; */
+    min-width: 300px;
+    margin: 15px;
+    position: relative;
+}
+li > p {
+    padding: 10px;
+}
+figure{
+    position: relative;
+}
+h3 {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    width:100%;
+    /* height:50px; */
+    text-align: left;
+    padding: 25px 0px;
+    /* position: relative;
+    bottom:78px; */
+    position: absolute;
+    bottom:1px
+    /* padding-bottom: 1px; */
+}
+/* [href="#breweries"] {
+    /* width: 100px; */
+    /* position: absolute;
+    right: 500px; 
+} */
+
+footer {
+    background-color: #000;
+    color:#fff;
+    position: sticky;
+    bottom: 0;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+    font-size: small;
+}
