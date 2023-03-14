@@ -53,6 +53,9 @@
 8. MariaDb & HediSQL Install
 	- 참조 : https://m.blog.naver.com/heartflow89/221074331956
 
+	* 	maria db server - 10.5.19 (안정성) 
+		db password : root506
+
 	- 샘플데이터 베이스
 		> 파일 다운로드 및 압축해제 : https://github.com/ByungjooPark/PHPFULLSTACK.git 
 			* DataBase > Sample > 0_sample1_employees.zip
@@ -65,6 +68,21 @@
 	- hediSQL autocommit설정 해제
 		> SELECT @@autocommit;
 		> SET @@autocommit:0;
+
+		 >* C:\Program Files\mariaDB 10.5\data\mt.ini → 메모장으로 열기
+		  * [mysqls] 부분에 autocommit=0 입력 후 저장 > heidi 재실행
+
+		* cmd 
+		d: > d 드라이브로 이동
+		cd backup > backup 폴더 안으로 이동
+		* 하위 폴더로 이동 (cd ) / 상위 폴더로 이동 (cd.. ) / 최상위 폴더로 이동 (cd/ )
+		* 폴더 첫 글자 + tap : 자동완성
+
+		dir : 안에 있는 폴더를 보여줌
+
+		heidlsql 
+		; : 현재 문장의 끝을 알림
+		ctrl + space : 자동 완성
 
 
 **********************************

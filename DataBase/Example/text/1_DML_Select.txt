@@ -1,18 +1,3 @@
-maria db server - 10.5.19 (안정성) 
-db password : root506
-
-cmd 
-d: > d 드라이브로 이동
-cd backup > backup 폴더 안으로 이동
-* 하위 폴더로 이동 (cd ) / 상위 폴더로 이동 (cd.. ) / 최상위 폴더로 이동 (cd/ )
-* 폴더 첫 글자 + tap : 자동완성
-
-dir : 안에 있는 폴더를 보여줌
-
-heidlsql 
-; : 현재 문장의 끝을 알림
-ctrl + space : 자동 완성
-
 0. SELECT문의 기본 구조
 	SELECT [DISTINCT] [컬럼명]
 	FROM [테이블명]
@@ -157,6 +142,13 @@ aaa
 					WHERE emp_no = 110114
 				  );
 
+		SELECT * FROM dept_manager
+		WHERE dept_no = 
+					( 
+						SELECT dept_no FROM dept_manager
+						WHERE emp_no = 110344
+					);
+
 4. ANY / ALL 
 in : 서브쿼리의 결과에 존재하는 임의의 값과 동일한 조건
 any : 서브쿼리의 결과에 존재하는 어느 하나의 값이라도 만족하는 조건(부분일치)
@@ -169,6 +161,27 @@ all : 서브쿼리의 결과에 존재하는 모든 값을 만족하는 조건(�
 						  FROM dept_manager
 						  WHERE dept_no = 'd002'
 					    );
+
+		SELECT * FROM dept_manager
+		WHERE emp_no in 
+					( 
+						SELECT emp_no FROM dept_manager
+						WHERE dept_no = 'd009'
+					);
+					
+		SELECT * FROM dept_manager
+		WHERE emp_no = ANY 
+					( 
+						SELECT emp_no FROM dept_manager
+						WHERE dept_no = 'd009'
+					);
+					
+		SELECT * FROM dept_manager
+		WHERE emp_no = all 
+					( 
+						SELECT emp_no FROM dept_manager
+						WHERE dept_no = 'd009'
+					);
 
 	- ANY를 사용하면 2개 이상의 결과 중 하나라도 만족하는 데이터를 조회합니다.
 		SELECT *
@@ -193,6 +206,7 @@ all : 서브쿼리의 결과에 존재하는 모든 값을 만족하는 조건(�
 	- MAX(컬럼명) : 최대값을 구합니다.
 	- MIN(컬럼명) : 최소값을 구합니다.
 	- COUNT(컬럼명) : 개수를 구합니다.
+	- SUM(컬럼명) : 합계를 구합니다.
 
 	SELECT COUNT(*)
 	from employees;
