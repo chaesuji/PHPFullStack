@@ -124,3 +124,10 @@ WHERE emp_no IN (
 SELECT emp_no, title FROM titles
 WHERE to_date >= NOW()
 and title = 'senior engineer';
+
+-- 30000 ~ 50000
+		SELECT emp_no, avg(salary) AS avg_s
+		FROM salaries
+		group BY emp_no 
+		HAVING avg_s >= 30000
+		and avg_s <= 50000;
