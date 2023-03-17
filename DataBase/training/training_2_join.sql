@@ -32,11 +32,11 @@ FROM employees emp
 	WHERE sal.to_date = '99990101'
 	LIMIT 10;
 -- 각 부서의 부서장의 부서명, 풀네임, 입사일을 출력해주세요
-SELECT dept_m.dept_no, concat(emp.last_name, ' ', emp.first_name) AS fullname, 
+SELECT dept_m.dept_no, dept.dept_name, concat(emp.last_name, ' ', emp.first_name) AS fullname, 
 emp.hire_date
 FROM employees emp
-	INNER JOIN dept_manager dept_m
-	ON emp.emp_no = dept_m.emp_no
+	INNER JOIN dept_manager dept_m on emp.emp_no = dept_m.emp_no
+	INNER join departments dept ON dept.dept_no = dept_m.dept_no
 	WHERE dept_m.to_date = '99990101';
 -- 현재 직책이 "staff"인 사원의 현재 평균 월급을 출력해주세요
 SELECT avg(sal.salary)
@@ -44,12 +44,12 @@ FROM titles tit
 	INNER JOIN salaries sal
 	ON tit.emp_no = sal.emp_no
 	WHERE tit.to_date ='99990101' and tit.title = 'Staff';
+	
 -- 부서장직을 익임했던 모든 사원의 풀네임과 입사일, 사번, 부서번호를 출력해주세요
 SELECT emp.emp_no, CONCAT(emp.last_name, ' ', emp.first_name) AS fullname,
 dept_m.dept_no, emp.hire_date
 FROM employees emp
-	INNER JOIN dept_manager dept_m
-	ON emp.emp_no = dept_m.emp_no
+	INNER JOIN dept_manager dept_m ON emp.emp_no = dept_m.emp_no
 	WHERE dept_m.to_date != '99990101';
 -- 현재 각 직급별 평균월급 중 60,000 이상인 직급명, 평균월급(정수)를 내림차순으로 출력
 SELECT tit.title, ceiling(avg(sal.salary)) AS avg_salary
@@ -59,7 +59,7 @@ FROM titles tit
 	WHERE sal.to_date = '99990101'
 	GROUP BY title
 	HAVING avg_salary >= 60000
-	ORDER BY avg_salary desc;
+	ORDER BY avg_salary;
 		
 -- 성별이 여자인 사원들의 직급별 사원수를 출력해 주세요
 SELECT tit.title, SUM(emp.gender = 'F')
