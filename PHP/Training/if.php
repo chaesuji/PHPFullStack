@@ -31,7 +31,7 @@
     //     echo "잘못된 값을 입력 했습니다.";
     // }
 
-    $score = 150;
+    $score = 50;
     $what_score = "당신의 점수는 $score 입니다.";
     $grade = "";
     $no_score = "";
@@ -50,8 +50,8 @@
     //     $grade = "<F>";
     // } else {
     //     $no_score = "잘못된 값을 입력 했습니다.";
-    //     echo $score <= 0 || $score > 100 ? $no_score : $what_score.$grade;
     // }
+    // echo $score <= 0 || $score > 100 ? $no_score : $what_score.$grade;
 
 
     if($score <= 0 || $score > 100) {
