@@ -40,26 +40,25 @@
         //     echo "\n";
         // }
 
-        // for($i=1; $i<=$num; $i++){
-        //     for($s=1; $s<=$num-$i; $s++){
-        //         echo " ";
-        //     }
-        //     for($z=1; $z<=$i; $z++){
-        //         echo "*";
-        //     }
-        //     echo "\n";
-        // }
-
+        for($i=1; $i<=$num; $i++){
+            for($s=1; $s<=$num-$i; $s++){
+                echo " ";
+            }
+            for($z=1; $z<=$i; $z++){
+                echo "*";
+            }
+            echo "\n";
+        }
 
         $i = 1;
         $z = 1;
-        while($i <= $num){ // 1 <= 5
-            while($z <= $i){ // 1 <= 1
-                echo "*"; 
-                $z++; // $z+1 > 2 <= 1 > loopX
-            }
-            $z = 1;
-            echo "\n"; 
-            $i++;
-        }
+        // while($i <= $num){ // 1 <= 5
+        //     while($z <= $i){ // 1 <= 1
+        //         echo "*"; 
+        //         $z++; // $z+1 > 2 <= 1 > loopX
+        //     }
+        //     $z = 1;
+        //     echo "\n"; 
+        //     $i++;
+        // }
 ?>
