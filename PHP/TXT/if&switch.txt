@@ -1,0 +1,30 @@
+조건문(If, Switch)
+
+1. IF : 주어진 조건에 따라 서로 다른 문장을 수행
+    if(condition) {
+        statement;
+    } else if (condition) {
+        statement;
+    } else { 
+        statement;
+    }
+
+- 괄호 안의 조건식이 참일 경우 중괄호({}) 안의 실행문 실행
+- else if : if와 다른 조건의 값이 들어올 경우를 대비
+- else : if, else if의 조건이 아닌 그 외의 값이 들어올 경우 실행
+
+2. Switch : 하나의 변수를 비교해 비교된 값에 따라 서로 다른 코드를 수행
+    Switch(condition) {
+        case (value) :
+            statement;
+            break;
+        case (value_2) : 
+            statement;
+            break;
+    }
+
+- () 안의 조건식이 참일 경우 case 를 통해 조건 값이 어떤 값인지에 따라 안의 실행문 실행
+- case (value) : 조건의 값이 value 일 경우 밑의 실행문들 실행
+- break : 실행문을 실행한 뒤 실행문을 종료 시키는 용도(반복을 취소 시키는 용도)
+* Switch는 범위가 아닌 특정 값을 비교할 때 쓰임
+
