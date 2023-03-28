@@ -17,4 +17,5 @@
         echo $key." : ".$val."\n";
         }
     }
+    print_r($food_2);
 ?>
