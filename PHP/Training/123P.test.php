@@ -24,21 +24,29 @@ function star($int_b){
 }
 echo star(5);
 
-function star_rect($int_b,$int_d){
-    for($int_a=null; $int_a<=$int_b; $int_a++){
-        for($int_c=null; $int_c<=$int_d; $int_c++){
+function star_rect($int_b){
+    for($int_a=null; $int_a<$int_b; $int_a++){
+        for($int_c=null; $int_c<$int_b; $int_c++){
             echo "*";
         }
         echo "\n";
     }
 }
-echo star_rect(5,3);
+echo star_rect(3);
 
 // 별, 줄바꿈 
-function print_star(){
-    for($int_a=null; ){
-
+function print_star($int_b){
+    for($int_c=null; $int_c<$int_b; $int_c++){
+            echo "*";
+    }
+    echo "\n";
+}
+function print_space($int_b){
+    for($int_a=null; $int_a<=$int_b; $int_a++){
+        print_star($int_a);
     }
 }
-echo print_rect(15);
+echo print_space(5);
+
+
 ?>
