@@ -1,0 +1,5 @@
+function(함수)
+    function fnc_add($int_a, $int_b){
+        $sum = $int_a + $int_b;
+        return $sum;
+    }
