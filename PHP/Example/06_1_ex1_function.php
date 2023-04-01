@@ -12,7 +12,7 @@
 
     // fnc_add 함수를 호출
     $result_add = fnc_add(10, 2);
-     echo $result_add;
+    echo $result_add;
 
     // 가변 파라미터 함수
     function fnc_args_add(){
