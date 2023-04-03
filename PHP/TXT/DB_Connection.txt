@@ -1,0 +1,3 @@
+- DB 연결 > 설정 : php.ini > extension = mysqli 주석 제거(;)
+  $변수 = mysqli_connect("hostname", "username", "password", "table name", portnum);
+  $var_dump($변수); > 
