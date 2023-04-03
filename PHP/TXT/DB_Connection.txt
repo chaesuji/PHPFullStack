@@ -1,3 +1,27 @@
-- DB 연결 > 설정 : php.ini > extension = mysqli 주석 제거(;)
-  $변수 = mysqli_connect("hostname", "username", "password", "table name", portnum);
-  $var_dump($변수); > 
+1. DB 연결 
+  *  DB 연결 전 설정 : php.ini > extension = mysqli 주석 제거(;)
+
+  ① $변수 = mysqli_connect("hostname", "username", "password", "table name", portnum);
+   ↳ $dbc = mysqli_connect("localhost", "root", "root506", "employees", 3306);
+  ② $var_dump($변수); > DB 연결 후 DB 정보가 출력되면 연결 성공
+
+2. 쿼리 요청
+  - ① $변수명 = mysqli_query(1-①의 변수명, "사용할 쿼리문");
+   ↳ $result_query = mysqli_query($dbc, "SELECT emp_no,first_name FROM employees LIMIT 10;");
+  
+  - mysqli_fetch_row() : 2-①의 변수 값으로부터 결과 값을 배열(일반 배열)로 전환함, 컬럼명 X
+   ↳ ② $result_row = mysqli_fetch_row($result_query);
+
+  - row로 배열된 변환된 값을 while로 확인
+   while($temp_row = mysqli_fetch_row($result_query)){
+        var_dump($temp_row);
+        // echo $temp_row[0],", ";
+   }
+
+  - mysqli_fetch_assoc(associative array): DB 상의 컬럼명과 함께 연관 배열 형태로 출력
+   while($temp_assoc = mysqli_fetch_assoc($result_query)){ > $result_query의 쿼리문을 가져와서 실행 값을 한 줄씩 $temp_assoc에 넣음
+        var_dump($temp_assoc["first_name"]); > 쿼리문의 컬럼 중 first_name만 나오게 출력
+   }
+     mysqli_fetch_assoc() : 필드명(키,값)을 통해 데이터 호출
+
+3. Prepared Statement
