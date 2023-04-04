@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    }
+*{
+    /* font-family: 'bitbit'; */
+    font-family:'NeoDunggeunmoPro-Regular'
+}
+input:focus{
+    outline:none;
+}
+.underline_ex{
+    border:0;
+    border-bottom: 1px solid black;
+    font-size: 17px;
+    /* margin:0.5em; */
+}
+div{
+    margin:0.5em;
+}
+label{
+    border-bottom: 1px solid black;
+}
+.todocheck:focus{
+    text-decoration:line-through;
+}
+li{
+    list-style: none;
+}
+ul {
+    margin:0;
+}
+table{
+    /* border: 1px solid black; */
+    border-collapse:collapse;
+    margin:10px;
+}
+td{
+    /* border:1px solid black; */
+    padding:3px;
+    width:30px;
+    height:30px;
+}
+.not_month{
+    color : rgba(0, 0, 0, 0.5)
+}
+th{
+    /* background-color: rgba(210, 182, 247, 0.2); */
+    border-bottom: 1px solid black;
+    width:30px;
+    height:20px;
+}
+h1{
+    margin:15px;
+}
+
+.sat{
+    color:blue;
+}
+.sun{
+    color:red;
+}

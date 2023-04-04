@@ -5,57 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        input:focus{
-            outline:none;
-        }
-        .underline_ex{
-            border:0;
-            border-bottom: 1px solid black;
-            font-size: 17px;
-            /* margin:0.5em; */
-        }
-        div{
-            margin:0.5em;
-        }
-    </style>
+    <script type="text/javascript" scr="./JS/check.js"></script>
+    <link rel="stylesheet" href="./CSS/main.css">
 </head>
 <body>
-    <strong>Check List</strong>
+    <h1>Check List</h1>
     <hr>
     <div class="ymd">
         <table>
             <tr>
-                <td>일</td>
-                <td>월</td>
-                <td>화</td>
-                <td>수</td>
-                <td>목</td>
-                <td>금</td>
-                <td>토</td>
+                <th class="sun">일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th class="sat">토</th>
             </tr>
-            
+            <tr>
+                <td class="not_month">26</td>
+                <td class="not_month">27</td>
+                <td class="not_month">28</td>
+                <td class="not_month">29</td>
+                <td class="not_month">30</td>
+                <td class="not_month">31</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td class="not_month">1</td>
+                <td class="not_month">2</td>
+                <td class="not_month">3</td>
+                <td class="not_month">4</td>
+                <td class="not_month">5</td>
+                <td class="not_month">6</td>
+            </tr>
         </table>
     </div>
-    <div>
-        <input type="checkbox">
-        <input type="text" class="underline_ex">
-    </div> 
-    <div>
-        <input type="checkbox">
-        <input type="text" class="underline_ex">
-    </div> 
-    <div>
-        <input type="checkbox">
-        <input type="text" class="underline_ex">
-    </div> 
-    <div>
-        <input type="checkbox">
-        <input type="text" class="underline_ex">
-    </div> 
-    <div>
-        <input type="checkbox">
-        <input type="text" class="underline_ex">
-    </div> 
+    
+    <article>
+        <ul>
+            <li>
+                <input type="checkbox">
+                <span></span>
+            </li>
+            <li>
+                <input type="checkbox">
+                <span></span>
+            </li>
+            <li>
+                <input type="checkbox">
+                <span></span>
+            </li>
+        </ul>
+    </article>
 </body>
 </html>

@@ -5,17 +5,21 @@
     my_db_conn( $obj_conn );
 
     // 1. 전체 월급의 평균
-    $sql = "SELECT AVG(salary) FROM salaries";
+    $sql = "SELECT AVG(salary) FROM salaries WHERE to_date >= now()";
 
     $stmt = $obj_conn->prepare( $sql );
     $stmt->execute();
     $result = $stmt->fetchAll();
     var_dump($result);
 
+    // query() 메소드를 이용해 데이터 출력(고정된 쿼리로 고정된 데이터만 출력 가능)
+    // $stmt = $obj_conn->query( $sql );
+    // $result = $stmt->fetchAll();
+    // var_dump( $result );
+
     // 2. 새로운 사원 정보를 employees 테이블에 등록해주세요
-    // $sql = "INSERT INTO employees
-    // ( emp_no, birth_date, first_name, last_name, gender, hire_date )
-    // VALUES ( :emp_no, :birth_date, :first_name, :last_name, :gender, :hire_date )";
+    // $sql = "INSERT INTO employees ( emp_no, birth_date, first_name, last_name, gender, hire_date, sup_no )
+    // VALUES ( :emp_no, :birth_date, :first_name, :last_name, :gender, :hire_date, :sup_no )";
 
     // $arr_prepare = array(
     //     ":emp_no"=>"500001",
@@ -23,7 +27,8 @@
     //     ":first_name"=>"김",
     //     ":last_name"=>"김김",
     //     ":gender"=>"M",
-    //     ":hire_date"=>"1243-01-01"
+    //     ":hire_date"=>"1243-01-01",
+    //     ":sup_no"=>null
     // );
     // $stmt = $obj_conn->prepare( $sql );
     // $result = $stmt->execute( $arr_prepare );
@@ -43,7 +48,7 @@
     // $stmt = $obj_conn->prepare( $sql );
     // $result = $stmt->execute( $arr_prepare );
     // $obj_conn->commit();
-    // var_dump( $result );
+    var_dump( $result );
 
     // 4. 2에서 등록한 사원을 삭제해주세요.
     // $sql = "DELETE FROM employees WHERE emp_no = :emp_no";

@@ -1,0 +1,64 @@
+1. DB 연동 
+* PDO 연동 전 환경 설정 > php.ini 파일 - extension=pdo_mysql 주석(;) 제거 후 apache2.4 다시 시작(> service)
+    $db_host = "localhost"; // host
+    $db_user = "root"; // user
+    $db_pw = "root506"; // password
+    $db_name = "employees"; // db table name
+    $db_charset = "utf8mb4"; // charset
+    $db_dms = "mysql:host=".$db_host.";dbname=".$db_name.";charset=".$db_charset;
+    $db_option = array(
+        PDO::ATTR_EMULATE_PREPARES => false, // DB의 Prepared Statement 기능을 사용하도록 설정, true > PHP의 Prepared Statement 기능 사용
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // 에러 발생시 PDO Exception을 Throws 하도록 설정
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // 연상 배열로 fetch를 하도록 설정
+    );
+
+    - PDO 클래스로 연동하기 (new PDO() -> 클래스 생성)
+    $obj_conn = new PDO($db_dms, $db_user, $db_pw, $db_option);
+
+    - DB 연동 파기(연결 끊기)
+    $obj_conn = null; 
+
+2. Insert, Select, Update, Delete
+
+    - Insert 
+    $sql = " INSERT INTO departments( ". > insert 할 쿼리문 작성
+            " dept_no, ". 
+            " dept_name ".
+            " ) ". 
+            " VALUES( ". 
+            " :dept_no, ".
+            " :dept_name ".
+            " ) ";
+
+    $arr_prepare = array( > :dape_no, :dept_name에 들어갈 값을 연관배열로 설정
+        ":dept_no"=>"d011",
+        ":dept_name"=>"PHP풀스택"
+    );
+    $stmt = $obj_conn->prepare( $sql ); > 위에서 작성한 쿼리문(=$sql)을 담은 PDOStatement 생성
+    $result = $stmt->execute( $arr_prepare ); > PDO Statement 쿼리를 실행(질의를 실행)
+    $obj_conn->commit(); > 쿼리를 실행한 후 결과 값들을 commit(저장)
+
+    - Select
+    $sql = " SELECT ".
+            " sal.salary, ".
+            " emp.emp_no, ".
+            " emp.birth_date ".
+            " FROM ".
+            " employees emp ".
+            " INNER JOIN salaries sal ".
+                " ON emp.emp_no = sal.emp_no ".
+            " WHERE ".
+                " ( ".
+                " emp.emp_no = :emp_no1 ".
+                " OR emp.emp_no = :emp_no2 ".
+                " ) ".
+                " AND sal.to_date >= now() "
+                
+    $arr_prepare = array(
+        ":emp_no1" => 10001,
+        ":emp_no2" => 10002
+    );
+    $stmt = $obj_conn->prepare( $sql ); // prepare statement를 생성&쿼리 넣기
+    $stmt->execute( $arr_prepare ); // 쿼리 실행, 연상배열로 값을 넘겨주기
+    $result = $stmt->fetchAll(); // 쿼리 결과를 fetch
+    // var_dump($result);
