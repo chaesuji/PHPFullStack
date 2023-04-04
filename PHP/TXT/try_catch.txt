@@ -1,0 +1,37 @@
+Try-Catch : 에러 처리를 위한 문법
+
+- try : 연산을 하기 위한(= 실행하고 싶은) 코드 작성
+- catch : 연산을 하던 도중 에러 발생 시 실행되는 코드 작성
+- finally : 연산을 완료, 에러 발생 시에도 무조건 실행되는 코드 작성
+
+- throw Exception : 에러를 강제로 일으키는 구문 / try에서 에러가 발생할 경우 코드를 더 실행하지 않고 catch로 넘어가 오류 출력
+
+try {
+        $obj_conn = null; 
+        my_db_conn( $obj_conn );
+        $sql = " SELECT * FROM employees WHERE emp_no = 10000000" ;
+        $stmt = $obj_conn->query( $sql );
+        $result = $stmt->fetchAll();
+
+        if( count( $result ) === 0 ){
+            // throw new Exception("쿼리 결과 0건"); 
+            throw new Exception("E99"); > 에러 메세지를 E99로 설정
+        }
+        var_dump( $result );
+        echo "try\n";
+
+    } catch (\Throwable $e) {
+        if($e->getMessage() === "E99"){ > getMessage가 가지고 온 에러가 E99일 경우 echo
+            echo "데이터 0건\n";
+        } else {
+            echo $e->getMessage(); > 아닐 시에는 해당 에러에 맞는 에러 메세지 출력
+        }
+        echo "-----------에러 발생-----------\n";
+        echo $e->getMessage();
+        echo "\n-----------에러 발생-----------\n";
+    } finally {
+        echo "finally\n"; 
+        $obj_conn = null;
+    }
+
+    echo "종료";

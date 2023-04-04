@@ -8,14 +8,19 @@
     /* font-family: 'bitbit'; */
     font-family:'NeoDunggeunmoPro-Regular'
 }
+form{
+    border : 1px solid black;
+    height:55em;
+    display: grid;
+}
 input:focus{
     outline:none;
 }
-.underline_ex{
+input[type=text]{
     border:0;
     border-bottom: 1px solid black;
     font-size: 17px;
-    /* margin:0.5em; */
+    margin:0.5em;
 }
 div{
     margin:0.5em;
@@ -31,11 +36,15 @@ li{
 }
 ul {
     margin:0;
+    border:1px dashed grey;
+    width:15em;
+    padding:1.5em;
+    /* grid-row-end: 1; */
 }
 table{
     /* border: 1px solid black; */
     border-collapse:collapse;
-    margin:10px;
+    margin:1.5em;
 }
 td{
     /* border:1px solid black; */
