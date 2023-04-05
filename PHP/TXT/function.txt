@@ -130,3 +130,18 @@ variable (변수) : 변수 - 변하는 값
 
     > 결과 : 3 4 (변수 $a와 $b가 있는 위치를 찾아 $a, $b의 값을 출력함)
     * & = &기호 뒤에 있는 변수의 위치를 찾음
+
+    function fnc_reference_1(&$param_str){
+        echo "2번 : $param_str \n";
+        $param_str = "fnc_reference2에서 값 변경";
+        echo "3번 : $param_str \n";
+    }
+    $str = "aaa";
+    echo "1번 : $str \n";
+    fnc_reference_1( $str );
+    echo "4번 : $str \n"; // 주소값
+
+>>> 1번 : aaa
+    2번 : aaa
+    3번 : fnc_reference2
+    4번 : fnc_reference2

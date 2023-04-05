@@ -1,0 +1,93 @@
+Class : 동종의 객체*들이 모여있는 집합
+ * 객체(object) : 데이터와 함수가 결합되어 있는 것 
+                : 클래스에서 정의한 것을 토대로 메모리(실제 저장공간)에 할당된 것 
+                 = 프로그램에서 사용되는 데이터 또는 식별자에 의해 참조되는 공간
+
+1. class 생성
+ - 클래스명의 첫 글자는 대문자
+ - 접근제어 지시자
+  public : 어디서든 접근 가능
+  private : 해당 class 내에서만 접근 가능
+  protected : 상속 class 내에서만 접근 가능
+ - public function __construct(){} > 생성자 : 
+ - public function ~~ ($param_num ...){} > 메소드(=함수, 동적 처리)
+ - this 포인터( $this-> ) : class 자기 자신을 가르키고 있음
+
+class Student { 
+        public $std_name; > 접근제어 지시자, 클래스 멤버변수
+        private $std_id;
+        protected $std_age;
+
+        public function print_student($param_std_name, $param_std_age){ > 메소드
+            $result_name = "이름 : ".$param_std_name."";
+            $result_age = "나이 : ".$param_std_age."세";
+
+            echo $result_name;
+            echo "\n";
+            echo $result_age;
+        }
+
+        public function set_std_id($param_id){ // private 객체를 사용하는 메소드, 값을 저장하는 용도
+            $this->std_id = $param_id; // 파라미터(=매개변수 / $param_id)에서 값을 받아 std_id에 넣어줌
+        }
+        public function get_std_id(){ // set_std_id에서 저장한 값을 가져오는 메소드
+            return $this->std_id;
+        }
+    }
+
+// public 접근제어 지시자 사용
+$obj_std = new Student(); > class를 선언(= 초기화)
+$obj_std->print_student(); > class 안의 메소드 호출
+
+// private 접근제어 지시자 사용
+$obj_student->set_std_id("id"); // 함수(set_std_id)를 한 번 거쳐서 값 넣음
+echo $obj_student->get_std_id(); // 함수(get_std_id)를 통해 값을 출력
+
+10. 상속(extends) : 부모 클래스의 객체들을 자식 클래스가 상속 받아 사용
+ - 자식 클래스 생성 후 extends Food(상속받을 부모 클래스)
+ * 오버라이딩 : 부모 클래스에서 정의된 메소드를 자식 클래스에서 재정의
+
+class Food { // > 부모 클래스
+    protected $str_name;
+    protected $int_price;
+
+    public function __construct( $param_name, $param_price ){
+        $this->str_name = $param_name;
+        $this->int_price = $param_price;
+    }
+
+    public function fnc_print_food(){
+        $str = $this->str_name. " : ". $this->int_price. " 원";
+        echo $str;
+    // public function fnc_print_food( $param_price ){ // fnc_print_food > $param_price 값을 지정
+    //     $this->int_price = $param_price;
+    //     $str = $this->str_name. " : ". $this->int_price. " 원";
+    //     echo $str;
+    }
+}
+
+$obj_food = new Food("탕수육", 10000);
+// $obj_food->str_name;
+// $obj_food->fnc_print_food();
+
+// 멤버변수 $int_price의 값을 12000으로 바꾸기 // fnc_print_food > $param_price를 통해 값 지정
+// $obj_food->fnc_print_food(8000);
+
+class KoreanFood extends Food { // > 자식클래스 (부모클래스의 객체들을 상속 받아 사용)
+    protected $side_dish;
+
+    public function __construct( $param_name, $param_price, $param_side_dish ){
+        $this->str_name = $param_name;
+        $this->int_price = $param_price;
+        $this->side_dish = $param_side_dish;
+    }
+    
+    public function fnc_print_food(){
+        // $str = $this->str_name. " : ". $this->int_price. " 원\n"."반찬 : ". $this->side_dish."\n";
+        parent::fnc_print_food();
+        $str = "\n"."반찬 : ".$this->side_dish."\n";
+        echo $str;
+    }
+}
+$obj_korean_food = new KoreanFood("치킨", 20000, "치킨무");
+$obj_korean_food->fnc_print_food();

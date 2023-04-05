@@ -1,0 +1,46 @@
+블랙잭 게임
+ - 카드 숫자를 합쳐 21에 가깝게 만들면 이기는 게임
+ * 카드 : 2 ~ 10, J/Q/K, A (다이아/클로버/하트/스페이드) 총 52장
+
+1. 게임 시작 시 유저와  딜러는 카드를 2개씩 받는다.
+    1-1 이 때 유저 또는 딜러의 카드 합이 21이면 결과 출력
+2. 카드 합이 21을 초과하면 패배
+    2-1 유저 또는 딜러의 카드의 합이 21이 넘으면 결과 바로 출력
+3. 카드의 계산은 아래의 규칙을 따른다.
+    3-1 카드 2~9는 그 숫자대로 점수
+    3-2 K,Q,J,10은 10점
+    3-3 A는 1점 또는 11점 둘 중 하나의 점수로 계산
+4. 카드의 합이 같으면 다음의 규칙에 따름
+    4-1 카드 수가 적은 쪽이 승리
+    4-2 카드 수가 같을 경우 무승부
+5. 유저가 카드를 받을 때 딜러는 아래의 규칙을 따른다
+    5-1 딜러는 카드의 합이 17보다 낮을 경우 카드를 더 받음
+    5-2 17 이상일 경우 받지 않음
+6. 1 입력 : 카드 더 받기 / 2 입력 : 카드 비교 / 0 입력 : 게임 종료
+7. 한 번 사용한 카드는 더 사용할 수 없음
+8. 딜러와 유저 둘 다 합이 21이 넘으면 유저 패배
+
+while(true) {
+	echo '시작';
+	print "\n";
+	fscanf(STDIN, "%d\n", $input);        
+	if($input === 0) {
+		break;
+	}
+	echo $input;
+	print "\n";
+}
+echo "끝!\n";
+
+터미널 > 
+PS D:WorkSpace\PHPFullStack> ls
+PS D:WorkSpace\PHPFullStack> cd PHP
+PS D:WorkSpace\PHPFullStack\PHP> cd Training
+PS D:WorkSpace\PHPFullStack\PHP\Training> cd black
+PS D:WorkSpace\PHPFullStack\PHP\Training\black> php black.php
+
+* cd(change directory) : 디렉토리 이동 / ls(list) : 디렉토리 안의 내용 출력
+
+$kard = array(2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J", "A");
+$kard_rand = array_rand($kard);
+echo $kard[$kard_rand];

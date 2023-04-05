@@ -37,9 +37,8 @@ li{
 ul {
     margin:0;
     border:1px dashed grey;
-    width:15em;
+    width:30em;
     padding:1.5em;
-    /* grid-row-end: 1; */
 }
 table{
     /* border: 1px solid black; */
@@ -70,4 +69,16 @@ h1{
 }
 .sun{
     color:red;
+}
+article{
+    grid-column-end:8;
+    margin-top:2em;
+}
+
+.check{
+    background-color: rgba(137, 204, 248, 0.5);
+    /* width:15em; */
+    /* height:1.5em; */
+    /* text-align: center; */
+    /* grid-column-end:8; */
 }
