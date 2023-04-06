@@ -20,17 +20,7 @@
 7. 한 번 사용한 카드는 더 사용할 수 없음
 8. 딜러와 유저 둘 다 합이 21이 넘으면 유저 패배
 
-while(true) {
-	echo '시작';
-	print "\n";
-	fscanf(STDIN, "%d\n", $input);        
-	if($input === 0) {
-		break;
-	}
-	echo $input;
-	print "\n";
-}
-echo "끝!\n";
+
 
 터미널 > 
 PS D:WorkSpace\PHPFullStack> ls
@@ -41,6 +31,32 @@ PS D:WorkSpace\PHPFullStack\PHP\Training\black> php black.php
 
 * cd(change directory) : 디렉토리 이동 / ls(list) : 디렉토리 안의 내용 출력
 
-$kard = array(2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J", "A");
-$kard_rand = array_rand($kard);
-echo $kard[$kard_rand];
+
+
+    foreach ($draw_u as $value) { 
+        $user_val += $value;
+    }
+    foreach ($draw_d as $value) {
+        $del_val += $value;
+    }
+
+    if($user_val = 21){
+        echo $user_val;
+    }else if($del_val = 21){
+        echo $del_val;
+    }else if($user_val > 21){
+        echo $user_val;
+        // break;
+    }else if($del_val > 21){
+        echo $del_val;
+        // break;
+    }else if($user_val === $del_val){
+        $user_kard = count($draw_u);
+        $del_kard = count($draw_d);
+        if($user_kard < $del_kard){
+            echo "user 승리";
+        }else{
+            echo "dealer 승리";
+        }
+        echo "무승부";
+    }
