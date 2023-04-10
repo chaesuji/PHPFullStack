@@ -20,43 +20,88 @@
 7. 한 번 사용한 카드는 더 사용할 수 없음
 8. 딜러와 유저 둘 다 합이 21이 넘으면 유저 패배
 
+이기는 조건 
+딜러 > 21 || 유저 > 21 = 유저 짐
 
+카드의 합이 같을 때
+딜러 카드 수 < 유저 카드 수 = 딜러 이김
+딜러 카드 수 > 유저 카드 수 = 유저 이김
+딜러 카드 수 === 유저 카드 수 = 무승부
 
-터미널 > 
+21에 가까운 사람이 이김
+딜러 < 21 || 유저 < 21
+딜러 > 21 || 유저 > 21
+딜러 < 21 || 유저 > 21 
+딜러 > 21 || 유저 < 21
+
+기존 카드 비교 if -----------------------------------------------------------------------
+if($user_val > 21 || $del_val > 21){
+                if($user_val > 21 && $del_val > 21){
+                    // $max_value = max($user_val,$del_val);
+                    // echo "\n".$max_value."";
+                    echo $user_val > $del_val ? "\n유저 짐" : "\n딜러 짐";
+                }else if($del_val > 21){
+                    echo "\n".$del_val." 딜러 짐\n";
+                }else{
+                    echo "\n".$user_val." 유저 짐\n";
+                }
+            }else if($user_val === $del_val){
+                $user_kard = count($draw_u);
+                $del_kard = count($draw_d);
+                if($user_kard < $del_kard){
+                    echo "\n카드 수 : ".$user_kard." 유저 이김";
+                }else if($user_kard > $del_kard){
+                    echo "\n카드 수 : ".$del_kard." 딜러 이김";
+                }else {
+                    echo "무승부";
+                }
+            }else if($user_val === 21 || $del_val === 21){
+                if($user_val === 21){
+                    echo "\n".$user_val." 유저 이김";
+                    // break;
+                }else if($del_val === 21){
+                    echo "\n".$del_val." 딜러 이김";
+                    // break;
+                }else{
+                    echo "\n무승부";
+                }
+            }else if($user_val < 21 || $del_val < 21){
+                if($user_val < 21 && $del_val < 21){
+                    $not_21_user = $user_val < 21;
+                    $not_21_deal = $del_val < 21;
+                    echo $not_21_user < $not_21_deal ? "\n딜러 이김" : "\n유저 이김";
+                }
+            }
+
+터미널 > cd(change directory) : 디렉토리 이동 / ls(list) : 디렉토리 안의 내용 출력
 PS D:WorkSpace\PHPFullStack> ls
 PS D:WorkSpace\PHPFullStack> cd PHP
 PS D:WorkSpace\PHPFullStack\PHP> cd Training
 PS D:WorkSpace\PHPFullStack\PHP\Training> cd black
 PS D:WorkSpace\PHPFullStack\PHP\Training\black> php black.php
 
-* cd(change directory) : 디렉토리 이동 / ls(list) : 디렉토리 안의 내용 출력
+--------------------------------------------------------------------------------------
 
+    $draw_u1 = " "; // 랜덤 카드 값(string) 저장용 변수
+    $draw_u2 = " ";
+    $draw_d1 = " ";
+    $draw_d2 = " ";
 
+    $draw_plus_u = " "; // 추가 카드 저장용 변수
+    $plus_draw_d = " ";
 
-    foreach ($draw_u as $value) { 
-        $user_val += $value;
-    }
-    foreach ($draw_d as $value) {
-        $del_val += $value;
-    }
+    $draw_u = []; // 점수(int) 저장용 배열
+    $draw_d = [];
+    $plus_draw = []; // 카드 더 뽑기 점수(int) 저장용 배열 
+    $user_plus_val = 0;
+    $user_val = 0; // 점수 합계 저장용 변수
+    $del_val = 0;
 
-    if($user_val = 21){
-        echo $user_val;
-    }else if($del_val = 21){
-        echo $del_val;
-    }else if($user_val > 21){
-        echo $user_val;
-        // break;
-    }else if($del_val > 21){
-        echo $del_val;
-        // break;
-    }else if($user_val === $del_val){
-        $user_kard = count($draw_u);
-        $del_kard = count($draw_d);
-        if($user_kard < $del_kard){
-            echo "user 승리";
-        }else{
-            echo "dealer 승리";
-        }
-        echo "무승부";
-    }
+문제점 :
+
+배열 안의 카드 다 사용 시 에러 메세지 후 break / try-catch,
+
+문제 해결함 -------------------------------------------------
+2 > 카드의 점수가 *2가 된 값으로 나옴
+3 > 비교 foreach 에러 
+3 > 딜러와 유저의 카드 비교 조건 / 유저와 딜러 둘 다 21에 안 가까울 때 좀 더 큰 수가 이김
