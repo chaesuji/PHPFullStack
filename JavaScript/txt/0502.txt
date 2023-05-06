@@ -1,1 +1,316 @@
 04,06,07,08,12
+
+04 변수(Variable)
+변수 선언 종류 : let, var
+상수 선언 : const 
+
+var : 중복 선언 가능, 재할당 가능, 함수레벨 스코프
+let : 중복 선언 불가능, 재할당 가능, 블록레벨 스코프
+
+const : 재할당 불가능, 블록레벨 스코프
+
+var user_name = 'aaa';
+var user_name = 'bbb'; // 중복 선언
+
+user_name = 'ccc'; // 값 재할당
+
+let user_age = 20; // 같은 이름의 변수 중복 선언 불가능
+user_age = 30; // 값 재할당
+
+const USER_GENDER = 'f'; // 같은 이름의 변수 중복 선언 불가능, 재할당 불가능
+
+-----------------------------------------
+* 스코프 : 변수에 접근할 수 있는 범위
+함수 : 함수 안에서 변수를 선언할 시에 함수 내에서만 변수 유효, 함수 외부에서는 참조할 수 없음
+블록 : 모든 코드 블록(중괄호(={}) / 함수,반복&조건문,try-catch 등) 내에서 선언된 변수는 코드 블록 내에서만 참조 가능
+전역 스코프 : 함수와 블록레벨에 해당되지 않는 스코프 함수, 블록 스코프에서 참조 가능
+
+let a = '123'; // 전역 스코프
+function test(){
+    let b = '456'; // 함수레벨 스코프
+}
+function block(){
+    if( true ){
+        let blocktest = '678'; // 블록레벨 스코프
+    }
+    console.log(blocktest);
+}
+
+호이스팅 
+: *인터프리터가 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것(= 코드가 실행되기 전에 변수와 함수를 최상단에 끌어올려지는 것)
+* 인터프리터 : 프로그래밍 언어의 소스 코드를 바로 실행하는 컴퓨터 프로그램 또는 환경
+- var로 선언한 변수의 경우 undefined로 초기화, let/const로 선언한 변수/상수의 경우 초기화하지 않음
+
+변수의 생명주기(선언 - 초기화 - 할당)
+function var_test(){
+    let var_test1 = 0; // 선언, 할당
+    return var_test1; // 소멸
+}
+1. 선언 : var, let, const 중 필요한 선언 키워드를 통해 선언
+2. 초기화 : 선언 키워드를 통해 이름이 정해진 변수에 값을 저장하기 위한 메모리 공간을 확보하고 암묵적으로 undefined를 할당
+3. 할당 : 할당 연산자(=)를 통해 이루어지며 모든 선언 키워드의 할당은 런 타임 과정에서 이루어짐
+TDZ(Temporal Dead Zone, 일시적인 사각지대) : 스코프의 시작 지점부터 초기화 시작 지점까지의 구간
+
+06 데이터타입(Datatype)
+
+기본 데이터 타입
+1. 숫자 (number)
+let number_var = 123;
+
+2. 문자열 (string)
+let string_var = "안녕하세요";
+
+3. 불리언 (boolean) : 참과 거짓을 나타냄
+let bool_var_t = true;
+let bool_var_f = false;
+
+4. null
+let null_var = null;
+
+5. undefined (값이 없는 상태의 변수)
+let unde_var;
+
+* null과 undefined의 차이
+null : 변수를 선언하고 값을 빈 값을 할당한 상태
+undefined : 변수를 선언하고 값을 할당하지 않은 상태
+
+6. 심볼 (Symbol) : 변경이 불가능한 원시 값(=다른 값과 중복되지 않는 유일무이한 값 / DB에서의 PK? unique 역할인듯)
+* 심볼을 사용할 때는 앞의 S를 대문자로 
+const symbol_const = Symbol("symbol");
+
+---------------------------------------
+객체 데이터타입
+1. JSON - key : value 형식
+let json_obj = {
+    user_name: "홍길동"
+    ,user_age: 30,
+    ,user_gender: "남자"
+    ,test: function test(){
+        console.log("객체 함수 테스트");
+    }
+    ,addr: {
+        addr1: "대구"
+        ,addr2: "중구"
+    }
+};
+* 다차원 배열같이 json안에 json 값을 넣는 것도 가능
+* 함수도 value로 넣을 수 있음
+
+2. 배열 (Array)
+배열의 기본 형태 : 
+let arr = [1,2,3,4,5];
+
+- push() : 배열의 마지막에 값 추가
+arr.push(6);
+
+- delete : 배열의 값만 삭제(값이 있던 공간은 삭제하지 않음)
+delete arr[5]; => arr = [1,2,3,4,5,empty]
+
+- splice() : 배열의 요소 삭제 후 교체 / 삭제 / 값 추가
+ 요소 삭제
+ arr.splice(2,1); // 배열의 변경을 시작한 인덱스, 삭제한 요소의 개수
+ => [1,2,4,5,empty]
+
+ 요소 삭제 후 교체
+ arr.splice(2,1,3); // 배열을 변경을 시작할 인덱스, 삭제할 요소의 개수, 삭제한 요소가 있던 공간에 들어갈 값
+ => [1,2,3,5,empty]
+
+ 요소 추가
+ arr.splice(3,0,4);
+ => [1,2,3,4,5,empty]
+
+ 배열 맨 앞에 값 넣기 arr.splice(0,0,0) => [0,1,2,3,4,5,empty]
+ 배열 맨 끝에 값 넣기 arr.splice(arr.length,0,arr.length) => [0,1,2,3,4,5,empty,7]
+ 가변 파라미터로 값 넣기 arr.splice(2,30,31,32,33) => [0,1,30,31,32,33]
+ * 2번째 인덱스 이후부터는 2,3,4,5,empty,7 의 값을 가변 파라미터(30,31,32,33)로 변경
+ * .length : 배열의 크기 체크
+
+- indexOf() : 배열에서 특정 요소를 찾는데 사용(= 원본 배열에서 인수로 전달된 요소를 검색하여 인덱스 반환)
+* 값이 발견되지 않으면 -1을 반환함
+arr.indexOf(31); => 2
+* 중복된 값이 있는 배열에서 중복된 값의 마지막 요소 찾기
+arr.push(31);
+arr.lastIndexOf(31); => 5
+
+indexOf / lastIndexOf를 통한 중복 체크
+let test = ['a','b','c','d','a'];
+
+for(let i=0; i<test.length; i++){
+    if(indexOf(test[i]) === lastIndexOf(test[i])){
+        console.log(test[i] + "is unique");
+    }else{
+        console.log(test[i] + "is duplicated");
+    }
+}
+
+- slice(시작점, 끝점) : 배열,문자열 자르기 / 시작점부터 끝점까지의 복사본을 새로운 배열 객체로 반환 -> 원본 배열은 수정되지 않음
+* 시작점 : 복사를 시작할 인덱스, 
+음수인 경우 배열의 끝에서부터의 길이를 나타냄(= slice(-2) : 배열의 마지막 2개 요소를 복사),
+배열의 길이와 같거나 큰 수를 지정한 경우 -> 빈 배열 반환
+
+* 끝점 : 복사를 끝낼 인덱스,
+이 인덱스에 해당되는 요소는 복사되지 않음,
+끝점은 생략 가능하며 생략하면 시작점부터 배열의 끝까지 복사됨
+
+let str = 'abcdefg'; // 0~6
+str.slice(2); => cdefg (= 시작점인 2(b)부터 자름)
+
+str.slice(1,3); => bc
+
+javascript.log.php를 javascript log php로 따로따로 출력
+let ex_name = "javascript.log.php";
+
+let a = ex_name.slice(0,ex_name.indexOf('.'));
+let b = ex_name.slice(ex_name.indexOf('.')+1, ex_name.lastIndexOf('.'));
+let c = ex_name.slice(ex_name.lastIndexOf(.)+1);
+
+console.log(a + b + c);
+
+- concat() : 배열들의 값을 기존 배열에 합쳐서 새배열을 반환
+let arr_1 = [1,2,3];
+let arr_2 = [10,20,30];
+let arr_3 = [100,200,300];
+let arr_123 = arr_1.concat(arr_2, arr_3); => [1,2,3,10,20,30,100,200,300]
+
+- includes() : 배열이 특정 요소를 가지고 있는지 확인
+arr = [1,2,3,4];
+arr.includes(3); => true
+arr.includes(5); => false
+
+- sort() : 배열을 요소를 아스키코드 기준으로 정렬해서 반환
+let sort_arr = [6,3,5,1,9,100];
+sort_arr.sort(); => [1,100,3,5,6,9] // 앞글자부터 오름차순으로 정렬
+
+오름차순 정렬 
+sort_arr.sort((a,b) => a-b); => [1,3,5,6,9,100]
+내림차순 정렬
+sort_arr.sort((a,b) => b-a); => [100,9,6,5,3,1]
+
+- join() : 배열의 모든 요소를 연결해서 하나의 문자열로 반환
+let arr_join = ["안녕","하세","요"];
+
+arr_join.join(); => 안녕,하세,요
+arr_join.join(''); => 안녕하세요
+arr_join.join('/'); => 안녕/하세/요
+
+- every() : 배열의 모든 요소들이 주어진 조건에 통과하는지 판별
+arr = [1,2,3,4,5];
+
+let result_every = arr.every(val => val <= 5); => true
+
+- some() : 배열의 어떤 요소라도 주어진 함수를 통과하는지 판별
+let result_some = arr.some(val => val >= 5); => 0,1,2,3 
+
+* every / some 의 차이점
+every : 모든 요소에 대해서 조건을 충족해야 true 리턴 (and)
+some : 1개 요소만 조건을 충족해도 true 리턴 (or)
+ - some의 경우 어떤 요소가 조건을 충족하면 남아있는 요소들을 체크하지 않고 true 리턴 / 남은 요소와 관계없이 true를 리턴하기 때문에 남은 요소들을 체크할 필요가 없음
+ - every : 어떤 요소가 충족하지 못하면 남은 요소들을 체크하지 않고 false를 리턴 / 남은 요소들이 조건을 충족해도 false가 리턴되기 때문에 체크할 필요 없음
+
+- filter() : 주어진 함수를 통과하는 모든 요소를 모아서 새로운 배열로 반환
+
+let result_filter = arr.filter(val => val >= 3); => 3,4,5
+
+07 연산자
+문자열 병합 연산자(+)
+let str = "aa" + "bb"; => aabb
+
+산술 연산자
+let num = 1 + 1; => 2
+num = 1 - 1; => 0
+num = 2 * 3; => 6
+num = 2 / 3; => 0.66666 ... 
+num = 2 % 3; => 2
+
+* 산술 연산자에서 더하기 연산자와 문자열 병합 연산자가 같기 때문에
+1 + '1' = '11' / 11 - '10' = 1이 되는 경우가 있음
+
+08 제어문
+조건문 : php에서의 if,switch와 크게 다른 것이 없음
+ - if
+ if( 1 > 0 ){
+    console.log("1은 0보다 크다");
+ }else if(1 < 0){
+    console.log("1은 0보다 작다");
+ }else{
+    console.log("기타 등등");
+ }
+
+let user_age = 30;
+switch (user_age) {
+    case 20:
+        console.log("20살");
+        break;
+
+    default:
+        console.log(user_age + "살");
+        break;
+}
+
+반복문 
+ - while
+ let num = 0;
+ while(num <= 3){
+    console.log(num);
+    num++;
+ };
+ => 0,1,2,3
+
+ - do-while : do-while로 구구단 2단 만들기
+ num = 1;
+ do{
+    console.log("2 * " + num + 2 * num);
+    num++;
+ }while(num <= 9);
+ => 2 * 1 = 2
+    2 * 2 = 4
+    2 * 3 = 6
+    2 * 4 = 8
+    2 * 5 = 10
+    2 * 6 = 12
+    2 * 7 = 14
+    2 * 8 = 16
+    2 * 9 = 18
+
+ - for : 구구단 2단
+ for(let i=1; i<=9; i++){
+    console.log("2 * " + i + " = " + 2*i);
+ }
+
+ - foreach : 배열의 반복문
+ : foreach를 사용해 배열을 루프할려면 인자로 콜백 함수 또는 익명 함수가 필요함
+ : 콜백 함수는 각 요소에 대해 실행되며 배열의 요소를 나타내는 매개변수를 반드시 하나 이상 사용해야 함
+ * 인자 - 함수 호출 시 함수에 전달되는 값
+ * 콜백함수 : 파라미터로 함수를 전달하는 함수(= 파라미터로 함수를 전달받아 함수의 내부에서 실행하는 함수)
+  let arr_foreach = ["가","나","다"] 
+  forEach(function(item, index, array)){ -> 마지막 인자 array는 forEach()를 호출한 배열로 거의 사용하지 않음
+    console.log(item, index); // item(배열의 값), index(배열의 방 번호)
+  }
+  => 
+  가 : 0
+  나 : 1
+  다 : 2
+ 
+ let arr = [1,2,3,4]
+ arr.forEach(fuction(val){
+    console.log(val);
+ })
+ => 1,2,3,4
+
+ - for ... in : 모든 객체를 루프 가능
+ for( let i in arr ){
+    console.log(i + " : " + arr[i]);
+ };
+ => 
+ 1 : 1
+ 2 : 31
+ 3 : 32
+ 4 : 33
+ 5 : 31
+
+ - for ... of : 인덱스 배열만 순차적으로 배열에 할당
+ // arr.num(9);
+ for( let z of arr ){
+    console.log(z);
+ }
+ => 0,1,31,32,33,31
