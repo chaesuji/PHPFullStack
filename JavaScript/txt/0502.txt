@@ -314,3 +314,34 @@ switch (user_age) {
     console.log(z);
  }
  => 0,1,31,32,33,31
+
+12 함수
+함수 선언문
+function add(a,b){
+    return a + b;
+}
+=> add(2,3); > 5
+
+함수 표현식
+let add2 = function(a,b){
+    return a+b;
+}
+=> add2(2,3); > 5
+
+화살표 함수 
+let test = () => "안녕";
+=> test(); > '안녕'
+
+익명 함수 : 함수 이름을 적지 않는 함수 / 변수에 할당하여 사용 가능
+function(a,b){
+    return a+b;
+}
+=> 
+let sum = function(a,b){
+    retrun a+b;
+};
+=> sum(1,2); > 3
+
+function 생성자 함수
+let add3 = new Function('a', 'b', 'return a+b;');
+=> add3(2,3); > 5

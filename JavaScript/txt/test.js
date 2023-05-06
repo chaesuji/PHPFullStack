@@ -41,3 +41,12 @@ arr.push(21);
 for( let z of arr ){
     console.log(z);
 }
+
+let test = () => "안녕";
+
+let sum = function(a,b){
+    return a+b;
+}
+
+// let add3 = new Function('a', 'b', 'return a + b;');
+let add3 = new Function('a', 'b', 'return a+b;');

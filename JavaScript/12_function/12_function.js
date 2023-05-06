@@ -31,5 +31,5 @@ let add3 = (a,b) => a+b;
 // ---------------------
 
 // Function 생성자 함수
-let add4 = Function('a', 'b',' retrun a+b;');
+let add4 = new Function('a', 'b','return a+b;');
 // ---------------------
