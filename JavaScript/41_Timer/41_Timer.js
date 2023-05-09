@@ -20,18 +20,33 @@ let i = 1;
 //     }
 // }, 1000)
 
-function sdf(){
+// 현재 시간
+const ppp = document.querySelector('#ppp');
+
+// getClock() : setInterval()을 읽어들일 때 딜레이 방지
+// padStart() : 문자열 길이만큼 있는 공백에 원하는 문자열 넣기
+function getClock(){
     const now = new Date();
-    const H = now.getHours();
-    const M = now.getMinutes();
-    const S = now.getSeconds();
-    const ppp = document.querySelector('#ppp');
-    ppp.innerHTML = H+":"+M+":"+S;
+    // toLocaleString() : 접속하는 지역에 맞는 시간 포맷
+    const AMPM = now.getHours() <= 12 || 0 < now.getHours() ? "오전" : "오후";
+    const H = String(now.getHours()).padStart(2, "0");
+    const M = String(now.getMinutes()).padStart(2, "0");
+    const S = String(now.getSeconds()).padStart(2, "0");
+    ppp.innerHTML = AMPM+" "+H+":"+M+":"+S;
 }
 
-const nowtime = setInterval(() => sdf(), 500);
+getClock();
+let nowtime = setInterval(() => getClock(), 1000);
 
-const btn = document.querySelector('#btn1');
-btn.addEventListener('click', () => {
+const btn1 = document.querySelector('#btn1');
+btn1.addEventListener('click', () => {
     clearInterval(nowtime);
 });
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', () => {
+    getClock();
+    nowtime = setInterval(() => getClock(), 1000);
+});
+
+// 콜백함수 (getClock(), ~~) X -> 함수로 인식하고 함수 실행한 값을 인수에 담음 
+// (getClock, ~~) O
