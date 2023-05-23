@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\TasksController;
+use App\Http\Controllers\BladeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,7 +98,11 @@ Route::get('/query', function(Request $request) { // $request의 데이터형을
 });
 
 // 2. URL 세그먼트로 지정 파라미터 획득
+// * URL 세그먼트 사용 : use Illuminate\Http\Request; 를 통해 값 조회
+// 
 // 세그먼트 지정 -> api
+// 세그먼트 === 서브디렉토리
+// /segment/{id} -> /segment/ : url | {id} : 세그먼트 파라미터
 Route::get('/segment/{id}', function($id) {
     return 'segment ID : '.$id;
 });
@@ -121,7 +128,8 @@ Route::get('/nameshome', function() {
 // 이름 지정
 Route::get('/names', function() { // url : /names 
     return 'name.index'; // content : name.index
-})->name('names.index'); // as : names.index
+})->name('names.index'); // as : names.index 
+// ->name('')  
 
 // ----------------------
 // 라우트 매칭 실패 시 대체 라우트 정의
@@ -184,3 +192,27 @@ Route::get('/makesign', function() {
 Route::get('/invitation', function() {
     return "sign";
 })->name('invitations')->middleware('signed');
+
+// ------------------
+// 컨트롤러
+// 컨트롤러 폴더 위치 : edu-laravel > app > Http > Controller
+// 컨트롤러 생성 커맨드 : php artisan make:controller [ControllerName]
+// use App\Http\Controllers\TestController;
+Route::get('/test', [TestController::class, 'index'])->name('tests.index');
+
+// --resource : 모델에 대한 생성, 읽기 업데이트 및 삭제를 처리하는 컨트롤러를 생성
+// php artisan make:controller TasksController --resource 
+// use App\Http\Controllers\TasksController;
+
+// GET|HEAD        tasks ....................... tasks.index › TasksController@index
+// POST            tasks ....................... tasks.store › TasksController@store
+// GET|HEAD        tasks/create .............. tasks.create › TasksController@create
+// GET|HEAD        tasks/{task} .................. tasks.show › TasksController@show
+// PUT|PATCH       tasks/{task} .............. tasks.update › TasksController@update
+// DELETE          tasks/{task} ............ tasks.destroy › TasksController@destroy
+// GET|HEAD        tasks/{task}/edit ............. tasks.edit › TasksController@edit
+Route::resource('/tasks', TasksController::class);
+
+// ------------------
+// blade
+Route::get('/blade', [BladeController::class, 'index'])->name('blade.index');

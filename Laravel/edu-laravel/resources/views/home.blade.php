@@ -10,7 +10,7 @@
     <h1>home</h1>
     <br><br><br>
     <form action="/method" method="post">
-        @csrf
+        @csrf {{-- csrf 보호 : 사이트 간 요청 위조 방지 --}}
         <button type="submit">POST</button>
     </form>
     <form action="/method" method="post">
