@@ -6,7 +6,6 @@
 
 @section('content')
     <h2>콘텐츠 섹션입니다</h2>
-    <p>아아아</p>
     <p>콘텐츠 끝</p>
 @endsection
 

@@ -204,6 +204,7 @@ Route::get('/test', [TestController::class, 'index'])->name('tests.index');
 // php artisan make:controller TasksController --resource 
 // use App\Http\Controllers\TasksController;
 
+// php artisan route:list
 // GET|HEAD        tasks ....................... tasks.index › TasksController@index
 // POST            tasks ....................... tasks.store › TasksController@store
 // GET|HEAD        tasks/create .............. tasks.create › TasksController@create
@@ -216,3 +217,7 @@ Route::resource('/tasks', TasksController::class);
 // ------------------
 // blade
 Route::get('/blade', [BladeController::class, 'index'])->name('blade.index');
+
+use App\Http\Controllers\BoardController;
+Route::get('/board', [BoardController::class, 'index']);
+Route::resource('/board', BoardController::class);
