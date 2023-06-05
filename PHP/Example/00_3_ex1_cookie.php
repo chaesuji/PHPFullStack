@@ -7,5 +7,5 @@ setcookie("age", "26", time() + 300);
 setcookie("age", "", 0);
 
 echo $_COOKIE["name"];
-
+//asdsadsad
 ?>
