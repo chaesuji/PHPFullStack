@@ -95,6 +95,7 @@ cursor: pointer;
 	color : white;
 	background-size: cover;
 	background-position: center;
+	z-index:-1;
 }
 .write-box {
 	border: none;

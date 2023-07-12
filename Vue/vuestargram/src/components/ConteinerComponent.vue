@@ -1,6 +1,7 @@
 <template lang="">
     <!-- 리스트   -->
     <div v-if="$store.state.tabflg == 0">
+        
         <PostComponent />
     </div>
 
@@ -18,7 +19,7 @@
     <div v-if="$store.state.tabflg == 2">
         <div class="upload-img" :style="{ backgroundImage : `url(${$store.state.imgUrl})`}" :class="$store.state.filter"></div>
         <div>
-            <textarea class="write-box" name="content" id="content" placeholder="써써써써써써써"></textarea>
+            <textarea @input="content = $event.target.value; $store.commit('setcontent', content)" class="write-box" name="content" id="content" placeholder="써써써써써써써"></textarea>
         </div>
     </div>
 
@@ -27,9 +28,12 @@
 import PostComponent from './PostComponent.vue'
 export default {
     name: 'ContainerComponent',
-    data() {return{
-        filterlist: [ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"]
-    }},
+    data() {
+        return{
+            filterlist: [ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"],
+            content: '',
+        }
+    }, 
     components: {
         PostComponent,
     },

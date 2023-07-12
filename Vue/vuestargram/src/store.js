@@ -39,7 +39,16 @@ const store = createStore({
         },
         clearState(state){
             state.filter = '';
-        }
+        },
+        setImgFile(state, imgFile){
+            state.imgFile = imgFile;
+        },
+        setcontent(state, content) {
+            state.content = content;
+        },
+        // clearState(state){
+
+        // }
     },
     actions: { // ajax 등 비동기처리
         getMainList(context) {
@@ -63,6 +72,30 @@ const store = createStore({
                 else{
                     document.getElementById('morebtn').style.display = 'none';
                 }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        },
+        // 게시글 작성
+        writeContent(context) {
+            
+            const header = {
+                headers: {
+                    'Content-Type' : 'multipart/form-data',
+                }
+            };
+
+            axios.post('http://192.168.0.66/api/boards', {
+                name: '채수지',
+                content: context.state.content,
+                filter: context.state.filter,
+                img: context.state.imgFile
+            }, header)
+            .then(res => {
+                console.log(res);
+                // context.commit('clearState')
+                location.reload();
             })
             .catch(err => {
                 console.log(err);
