@@ -97,6 +97,7 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // * js import 
 import data from './assets/JS/data.js'
+// component import
 import Navi from './components/Navi.vue'
 import ProductList from './components/ProductList.vue'
 import Modal from './components/Modal.vue'

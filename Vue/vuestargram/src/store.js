@@ -54,7 +54,7 @@ const store = createStore({
         getMainList(context) {
             axios.get('http://192.168.0.66/api/boards') // api 주소
             .then(res => { // 성공 시 처리
-                console.log(res.data);
+                console.log(res);
                 // context.boardData = res.data;
                 context.commit('createBoardData', res.data); // commit(함수명, 데이터), createBoardData에 res.data 저장
             })
