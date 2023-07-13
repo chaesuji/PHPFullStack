@@ -1,5 +1,5 @@
 <template lang="">
-    <div v-for="data in $store.state.getList" :key="data">
+    <div v-for="data in $store.state.listData" :key="data">
         <p>{{data.content}}</p>
     </div>
 </template>
