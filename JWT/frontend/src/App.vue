@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <button @click="login()">login</button>
+  <div v-if="flg == false">
+    <h1>Login</h1>
+    <input type="text" @input="id = $event.target.value;">
+    <button @click="login(id)">login</button>
+  </div>
+  <div v-if="flg == true">
+    <h1>List</h1>
   </div>
 </template>
 
@@ -12,16 +17,39 @@ export default {
   data() {
     return {
       token: '',
+      flg: false,
     }
   },
   methods: {
-    login() {
-      axios.get('http://localhost:8000/api/token?id=ppp',)
+    login(id) {
+      axios.get('http://localhost:8000/api/token?id=' + id)
       .then(res => {
         console.log(res.data);
         this.token = res.data.token;
+        this.chk();
       })
     },
+    chk() {
+      const header = 
+      {
+        headers: {
+          'Authorization' : this.token,
+        }
+      };
+          
+      axios.get('http://localhost:8000/api/chk', header)
+      .then(res => {
+        console.log(res.data);
+        console.log(res.data.msg);
+        if(res.data.msg == 'OK') {
+          this.flg = true;
+        }
+        
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
   },
 }
 </script>
