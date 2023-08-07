@@ -1,11 +1,6 @@
 <template>
-  <div v-if="flg == false">
-    <h1>Login</h1>
-    <input type="text" @input="id = $event.target.value;">
-    <button @click="login(id)">login</button>
-  </div>
-  <div v-if="flg == true">
-    <h1>List</h1>
+  <div>
+    <button type="button" @click="login()">Login</button>
   </div>
 </template>
 
@@ -26,30 +21,13 @@ export default {
       .then(res => {
         console.log(res.data);
         this.token = res.data.token;
-        this.chk();
-      })
-    },
-    chk() {
-      const header = 
-      {
-        headers: {
-          'Authorization' : this.token,
-        }
-      };
-          
-      axios.get('http://localhost:8000/api/chk', header)
-      .then(res => {
-        console.log(res.data);
-        console.log(res.data.msg);
-        if(res.data.msg == 'OK') {
-          this.flg = true;
-        }
-        
       })
       .catch(err => {
-        console.log(err);
+        if(err.status >= 400) [
+          console.log(err)
+        ]
       })
-    }
+    },
   },
 }
 </script>
