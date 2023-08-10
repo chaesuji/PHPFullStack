@@ -23,7 +23,8 @@ class JWT {
     public function createJWT(Array $data) {
         Log::debug('--- create JWT start ---');
 
-        // header 작성
+        // header 작성 
+        // header : 토큰의 기본 정보를 담는 곳
         $header_json = json_encode([
             'alg' => $this->alg,
             'typ' => 'JWT'
@@ -32,6 +33,7 @@ class JWT {
         Log::debug('header : '.$header);
 
         // payload 작성
+        // payload : 토큰에 담을 정보
         $iat = time(); // 1970 ~ 현재까지의 시간 계산 값, 발급 시간
         $exp = $iat + 60;  // 만료시간
         $payload_json = json_encode([
@@ -43,6 +45,7 @@ class JWT {
         Log::debug('payload : '.$payload);
 
         // signature 작성
+        // signature : 서명, 
         $signature = hash($this->alg, $header.$payload.$this->secret_key);
         Log::debug('signature : '.$signature);
 

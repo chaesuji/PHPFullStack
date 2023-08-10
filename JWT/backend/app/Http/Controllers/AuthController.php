@@ -13,13 +13,11 @@ class AuthController extends Controller
     {
         $this->obj_jwt = new JWT();
     }
-    // JWT 토근 생성
+    // JWT 토큰 생성
     function issuetoken(Request $req) {
         Log::debug("--- issuetoken start --- ");
         Log::debug("id : ", $req->only('id'));
-        // todo 유효성 체크
-
-        // DB에서 유저 검색
+        // todo 유효성 체크, DB에서 유저 검색
 
         // JWT 생성
         $token = $this->obj_jwt->createJWT($req->only('id'));

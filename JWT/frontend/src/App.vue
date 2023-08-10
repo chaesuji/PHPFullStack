@@ -1,32 +1,33 @@
 <template>
   <div>
-    <button type="button" @click="login()">Login</button>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
+import router from './router.js'
 
 export default {
   name: 'App',
-  data() {
-    return {
-      token: '',
-      flg: false,
-    }
-  },
   methods: {
-    login(id) {
-      axios.get('http://localhost:8000/api/token?id=' + id)
-      .then(res => {
-        console.log(res.data);
-        this.token = res.data.token;
-      })
-      .catch(err => {
-        if(err.status >= 400) [
-          console.log(err)
-        ]
-      })
+    // login(id) {
+    //   axios.get('http://localhost:8000/api/token?id=' + id)
+    //   .then(res => {
+    //     console.log(res.data);
+    //     this.$store.state.token = res.data.token;
+    //   })
+    //   .catch(err => {
+    //     if(err.status >= 400) [
+    //       console.log(err)
+    //     ]
+    //   })
+    // },
+    login() {
+      router.push('main');
+    },
+    logout() {
+      router.push('login');
     },
   },
 }
