@@ -16,6 +16,10 @@ const store = createStore({
             TokenController.setToken(token);
             state.isToken = true;
         },
+        destroyToken(state) {
+            TokenController.destroyToken();
+            state.isToken = false;
+        },
     },
     actions: {
         // js 함수 정의
@@ -31,6 +35,11 @@ const store = createStore({
                 console.log(err);
             })
         },
+        logout(context) {
+            TokenController.destroyToken();
+            context.commit('destoryToken');
+            router.push('login');
+        }
     },
 })
 
