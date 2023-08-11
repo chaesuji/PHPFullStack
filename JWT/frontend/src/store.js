@@ -38,7 +38,7 @@ const store = createStore({
         logout(context) {
             TokenController.destroyToken();
             context.commit('destoryToken');
-            router.push('login');
+            router.push('/');
         }
     },
 })
